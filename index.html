@@ -1,717 +1,1093 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>doccodex — Gadgets y electrodomésticos que de verdad ahorran tiempo en casa</title>
-  <meta name="description" content="Comparativas independientes de freidoras de aire, robots aspiradores y purificadores de bajo consumo. Analizamos autonomía, consumo eléctrico y durabilidad antes de recomendarte nada.">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://doccodex.com/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>doccodex — Gadgets virales, top ventas de Amazon y ahorro para el hogar</title>
+<meta name="description" content="Analizamos gadgets virales de TikTok Shop, los electrodomésticos más vendidos de Amazon y te enseñamos a ahorrar en casa eligiendo bien tus aparatos.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://doccodex.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="doccodex">
+<meta property="og:title" content="doccodex — Gadgets virales, top ventas de Amazon y ahorro para el hogar">
+<meta property="og:description" content="Reviews honestas de gadgets virales, electrodomésticos top ventas y guías de ahorro doméstico.">
+<meta property="og:locale" content="es_ES">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: {
+    colors: { base: { 50: '#f8fafc', 900: '#0f172a' }, accent: { DEFAULT: '#f59e0b', dark: '#d97706' } },
+    fontFamily: { head: ['"Space Grotesk"', 'sans-serif'], body: ['Inter', 'sans-serif'] }
+  }}}
+</script>
+<style>
+/* ==========================================================
+   doccodex · estilos propios (además de Tailwind CDN)
+   Botones de compra: alto contraste, iconos, táctil en móvil
+   ========================================================== */
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="doccodex">
-  <meta property="og:title" content="doccodex — Gadgets y electrodomésticos que de verdad ahorran tiempo en casa">
-  <meta property="og:description" content="Freidoras de aire, robots aspiradores y purificadores: comparados por consumo, autonomía y durabilidad, no por lo que más se anuncia.">
-  <meta property="og:url" content="https://doccodex.com/">
-  <meta property="og:image" content="https://doccodex.com/assets/og-cover.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:locale" content="es_ES">
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+body { font-family: 'Inter', sans-serif; }
+h1, h2, h3, .font-head { font-family: 'Space Grotesk', sans-serif; }
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="doccodex — Gadgets y electrodomésticos que de verdad ahorran tiempo en casa">
-  <meta name="twitter:description" content="Comparativas independientes de tecnología práctica para el hogar: cocina, limpieza, climatización y hogar inteligente.">
-  <meta name="twitter:image" content="https://doccodex.com/assets/og-cover.jpg">
+.faq-toggle[aria-expanded="true"] .faq-icon { transform: rotate(45deg); }
+.faq-icon { transition: transform .2s ease; }
 
-  <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%230f172a'/%3E%3Ctext x='50%25' y='58%25' font-size='13' fill='%23f59e0b' text-anchor='middle' font-family='Arial' font-weight='700'%3Ed%3C/text%3E%3C/svg%3E">
+/* --- Bloque CTA destacado (fin de cada review) --- */
+.cta-block {
+  border-radius: 1rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: .9rem;
+  align-items: flex-start;
+}
+@media (min-width: 640px) {
+  .cta-block { flex-direction: row; align-items: center; justify-content: space-between; }
+}
 
-  <!-- Fuentes: Space Grotesk (titulares) + Inter (texto, alta legibilidad) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+.cta-block--tiktok {
+  background: linear-gradient(135deg, #0f172a 0%, #1e1b3a 60%, #3a0a3a 100%);
+  border: 1px solid #ff2d5533;
+}
+.cta-block--amazon {
+  background: linear-gradient(135deg, #fff7e6 0%, #ffe9b8 100%);
+  border: 1px solid #d97706;
+}
 
-  <!-- Tailwind CSS vía CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            base: { 50: '#f8fafc', 900: '#0f172a' },
-            accent: { DEFAULT: '#f59e0b', dark: '#d97706' }
-          },
-          fontFamily: {
-            head: ['"Space Grotesk"', 'sans-serif'],
-            body: ['Inter', 'sans-serif']
-          }
-        }
-      }
-    }
-  </script>
+/* --- Botón de compra: alto contraste, mínimo 48px de alto (táctil) --- */
+.btn-buy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .55rem;
+  min-height: 48px;
+  padding: .85rem 1.5rem;
+  border-radius: .6rem;
+  font-weight: 700;
+  font-size: .95rem;
+  white-space: nowrap;
+  transition: transform .15s ease, filter .15s ease;
+}
+.btn-buy:hover { filter: brightness(1.08); transform: translateY(-1px); }
+.btn-buy:active { transform: translateY(0); }
+.btn-buy svg { width: 1.15rem; height: 1.15rem; flex-shrink: 0; }
 
-  <style>
-    html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
-    body { font-family: 'Inter', sans-serif; }
-    h1, h2, h3, .font-head { font-family: 'Space Grotesk', sans-serif; }
-    .faq-toggle[aria-expanded="true"] .faq-icon { transform: rotate(45deg); }
-    .faq-icon { transition: transform .2s ease; }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      * { transition-duration: 0.001ms !important; }
-    }
-  </style>
+.btn-buy--tiktok {
+  background: linear-gradient(90deg, #25F4EE 0%, #FE2C55 100%);
+  color: #0f172a;
+}
+.btn-buy--amazon {
+  background: #FF9900;
+  color: #0f172a;
+}
 
-  <!-- JSON-LD: WebSite -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "doccodex",
-    "url": "https://doccodex.com/",
-    "description": "Comparativas, análisis y guías de compra de gadgets, electrodomésticos y tecnología práctica para el hogar.",
-    "inLanguage": "es-ES"
-  }
-  </script>
+.badge-viral {
+  display: inline-flex; align-items: center; gap: .35rem;
+  background: #FE2C55; color: #fff; font-size: .7rem; font-weight: 700;
+  padding: .25rem .65rem; border-radius: 999px; letter-spacing: .02em;
+}
+.badge-bestseller {
+  display: inline-flex; align-items: center; gap: .35rem;
+  background: #0f172a; color: #FF9900; font-size: .7rem; font-weight: 700;
+  padding: .25rem .65rem; border-radius: 999px; letter-spacing: .02em;
+}
 
-  <!-- JSON-LD: ItemList con los productos destacados del mes -->
-  <!-- NOTA: los precios son orientativos (referencia de mercado en 2026); actualízalos periódicamente para que coincidan con el precio real en Amazon. -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    "name": "Top Elecciones del Hogar en 2026 - doccodex",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "item": {
-          "@type": "Product",
-          "name": "Cosori Dual Blaze TwinFry",
-          "category": "Freidora de aire",
-          "description": "Freidora de aire de doble cesta con 10 litros de capacidad y 2800W, con calentamiento simultáneo superior e inferior para no tener que voltear los alimentos.",
-          "brand": { "@type": "Brand", "name": "Cosori" },
-          "offers": {
-            "@type": "Offer",
-            "priceCurrency": "EUR",
-            "price": "189.00",
-            "availability": "https://schema.org/InStock",
-            "url": "https://link.amazon/B02HS3AiM"
-          }
-        }
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "item": {
-          "@type": "Product",
-          "name": "Roborock Q7 Max+",
-          "category": "Robot aspirador y friegasuelos",
-          "description": "Robot aspirador y friegasuelos con navegación LiDAR, 4200 Pa de succión y base de autovaciado que retiene el polvo hasta 7 semanas.",
-          "brand": { "@type": "Brand", "name": "Roborock" },
-          "offers": {
-            "@type": "Offer",
-            "priceCurrency": "EUR",
-            "price": "399.00",
-            "availability": "https://schema.org/InStock",
-            "url": "https://link.amazon/B0fUCEh8K"
-          }
-        }
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "item": {
-          "@type": "Product",
-          "name": "Levoit Core 300S",
-          "category": "Purificador de aire",
-          "description": "Purificador de aire inteligente con filtro HEPA de 3 etapas, control por app y modo noche de bajo consumo y bajo ruido.",
-          "brand": { "@type": "Brand", "name": "Levoit" },
-          "offers": {
-            "@type": "Offer",
-            "priceCurrency": "EUR",
-            "price": "149.00",
-            "availability": "https://schema.org/InStock",
-            "url": "https://link.amazon/B08XvWcrl"
-          }
-        }
-      }
-    ]
-  }
-  </script>
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition-duration: .001ms !important; }
+}
+
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "doccodex",
+  "url": "https://doccodex.com/",
+  "description": "Comparativas, análisis y guías de compra de gadgets, electrodomésticos y tecnología práctica para el hogar.",
+  "inLanguage": "es-ES"
+}
+</script>
 </head>
-
 <body class="bg-base-50 text-base-900 antialiased">
 
-  <!-- ======================= HEADER ======================= -->
-  <header class="sticky top-0 z-40 bg-base-50/90 backdrop-blur border-b border-slate-200">
-    <div class="max-w-6xl mx-auto px-5 flex items-center justify-between h-16">
+<header class="sticky top-0 z-40 bg-base-50/90 backdrop-blur border-b border-slate-200">
+  <div class="max-w-6xl mx-auto px-5 flex items-center justify-between h-16">
+    <a href="#inicio" class="font-head text-xl font-semibold tracking-tight">doccodex<span class="text-accent">.</span></a>
+    <nav aria-label="Secciones" class="hidden md:flex items-center gap-8 text-sm font-medium">
+      <a href="#tiktok" class="hover:text-accent-dark transition-colors">Viral en TikTok</a>
+      <a href="#amazon" class="hover:text-accent-dark transition-colors">Top Ventas Amazon</a>
+      <a href="#ahorro" class="hover:text-accent-dark transition-colors">Ahorro en Casa</a>
+    </nav>
+    <a href="#top-mes" class="hidden md:inline-flex items-center rounded-md bg-accent px-4 py-2 text-sm font-semibold text-base-900 hover:bg-accent-dark transition-colors">Top del Mes</a>
+    <button id="menu-btn" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden inline-flex items-center justify-center rounded-md p-2 border border-slate-300">
+      <span class="sr-only">Abrir menú</span>
+      <svg id="menu-icon-open" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <svg id="menu-icon-close" class="h-5 w-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <nav id="mobile-menu" aria-label="Secciones (móvil)" class="hidden md:hidden border-t border-slate-200 px-5 py-4 flex flex-col gap-4 text-sm font-medium bg-base-50">
+    <a href="#tiktok">Viral en TikTok</a>
+    <a href="#amazon">Top Ventas Amazon</a>
+    <a href="#ahorro">Ahorro en Casa</a>
+  </nav>
+</header>
 
-      <a href="#top" class="font-head text-xl font-semibold tracking-tight">
-        doccodex<span class="text-accent">.</span>
+<main id="inicio">
+
+
+
+  <section class="max-w-6xl mx-auto px-5 pt-16 pb-14 md:pt-24 md:pb-20">
+    <div class="max-w-2xl">
+      <h1 class="font-head text-4xl md:text-5xl font-semibold leading-tight">
+        Compra mejor: gadgets virales, top ventas de Amazon y trucos reales de ahorro
+      </h1>
+      <p class="mt-5 text-lg text-slate-600 leading-relaxed">
+        Filtramos el ruido de TikTok y Amazon para decirte qué gadgets de cocina, limpieza y
+        organización valen de verdad la pena, qué electrodomésticos dominan las ventas por buenas
+        razones, y cómo elegirlos y mantenerlos para pagar menos de luz cada mes.
+      </p>
+      <div class="mt-8 flex flex-wrap items-center gap-4">
+        <a href="#tiktok" class="inline-flex items-center rounded-md bg-accent px-6 py-3 text-sm font-semibold text-base-900 hover:bg-accent-dark transition-colors">Ver gadgets virales</a>
+        <a href="#amazon" class="inline-flex items-center rounded-md border border-slate-300 px-6 py-3 text-sm font-semibold hover:border-accent hover:text-accent-dark transition-colors">Top ventas Amazon</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PILARES -->
+  <section class="max-w-6xl mx-auto px-5 py-14">
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <a href="#tiktok" class="group rounded-xl border border-slate-200 bg-white p-6 hover:border-accent transition-colors flex flex-col">
+        <span class="badge-viral w-fit mb-4">🔥 En tendencia hoy</span>
+        <h2 class="font-head text-xl font-semibold">Gadgets virales de TikTok Shop</h2>
+        <p class="mt-2 text-sm text-slate-600 leading-relaxed flex-1">
+          Picadoras recargables, cepillos eléctricos para juntas, recogedores aspiradores,
+          organizadores magnéticos y selladores térmicos: analizamos si el hype está justificado.
+        </p>
+        <span class="mt-4 text-sm font-semibold text-accent-dark group-hover:underline">Ver los 5 análisis →</span>
       </a>
 
-      <!-- Navegación de escritorio -->
-      <nav aria-label="Categorías principales" class="hidden md:flex items-center gap-8 text-sm font-medium">
-        <a href="#cocina" class="hover:text-accent-dark transition-colors">Cocina Práctica</a>
-        <a href="#limpieza" class="hover:text-accent-dark transition-colors">Limpieza y Aspiración</a>
-        <a href="#climatizacion" class="hover:text-accent-dark transition-colors">Climatización</a>
-        <a href="#hogar-inteligente" class="hover:text-accent-dark transition-colors">Hogar Inteligente</a>
-      </nav>
-
-      <a href="#top-mes" class="hidden md:inline-flex items-center rounded-md bg-accent px-4 py-2 text-sm font-semibold text-base-900 hover:bg-accent-dark transition-colors">
-        Top del Mes
+      <a href="#amazon" class="group rounded-xl border border-slate-200 bg-white p-6 hover:border-accent transition-colors flex flex-col">
+        <span class="badge-bestseller w-fit mb-4">⭐ Top ventas</span>
+        <h2 class="font-head text-xl font-semibold">Top ventas de Amazon</h2>
+        <p class="mt-2 text-sm text-slate-600 leading-relaxed flex-1">
+          Freidoras de doble cesta, robots aspiradores con autovaciado, purificadores y
+          deshumidificadores: pros, contras y consumo eléctrico real de cada uno.
+        </p>
+        <span class="mt-4 text-sm font-semibold text-accent-dark group-hover:underline">Ver reviews completas →</span>
       </a>
 
-      <!-- Botón menú móvil -->
-      <button id="menu-btn" aria-expanded="false" aria-controls="mobile-menu"
-        class="md:hidden inline-flex items-center justify-center rounded-md p-2 border border-slate-300">
-        <span class="sr-only">Abrir menú</span>
-        <svg id="menu-icon-open" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-        <svg id="menu-icon-close" class="h-5 w-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
+      <a href="#ahorro" class="group rounded-xl border border-slate-200 bg-white p-6 hover:border-accent transition-colors flex flex-col">
+        <span class="inline-block w-fit rounded-full bg-emerald-100 text-emerald-700 text-xs font-semibold px-3 py-1 mb-4">💡 Guías de ahorro</span>
+        <h2 class="font-head text-xl font-semibold">Economía doméstica</h2>
+        <p class="mt-2 text-sm text-slate-600 leading-relaxed flex-1">
+          Freidora vs. horno, mantenimiento que alarga la vida de tus aparatos y cómo evitar
+          tirar comida con gadgets de conservación baratos.
+        </p>
+        <span class="mt-4 text-sm font-semibold text-accent-dark group-hover:underline">Leer las guías →</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- TABLA COMPARATIVA TOP DEL MES -->
+  <section id="top-mes" class="max-w-6xl mx-auto px-5 py-14 scroll-mt-20">
+    <div class="mb-8 max-w-2xl">
+      <h2 class="font-head text-3xl font-semibold">Top elecciones del hogar en 2026</h2>
+      <p class="mt-3 text-slate-600">Un producto por categoría, para no perder horas comparando fichas técnicas.</p>
     </div>
 
-    <!-- Navegación móvil -->
-    <nav id="mobile-menu" aria-label="Categorías (móvil)" class="hidden md:hidden border-t border-slate-200 px-5 py-4 flex flex-col gap-4 text-sm font-medium bg-base-50">
-      <a href="#cocina">Cocina Práctica</a>
-      <a href="#limpieza">Limpieza y Aspiración</a>
-      <a href="#climatizacion">Climatización</a>
-      <a href="#hogar-inteligente">Hogar Inteligente</a>
-      <a href="#top-mes" class="inline-flex justify-center rounded-md bg-accent px-4 py-2 font-semibold text-base-900">Top del Mes</a>
-    </nav>
-  </header>
+    <div class="overflow-x-auto border border-slate-200 rounded-lg">
+      <table class="w-full min-w-[760px] text-left text-sm">
+        <thead class="bg-slate-100 text-slate-600">
+          <tr>
+            <th scope="col" class="px-5 py-3 font-medium">Producto</th>
+            <th scope="col" class="px-5 py-3 font-medium">Plataforma</th>
+            <th scope="col" class="px-5 py-3 font-medium">Ventaja clave</th>
+            <th scope="col" class="px-5 py-3 font-medium">Valoración</th>
+            <th scope="col" class="px-5 py-3 font-medium text-right">Comprar</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-200">
 
-  <main id="top">
+          <tr class="hover:bg-slate-50">
+            <td class="px-5 py-4"><a href="#freidora-doble-cesta" class="font-semibold hover:text-accent-dark">Freidora de aire doble cesta</a><p class="text-slate-500">10 L · 2800 W</p></td>
+            <td class="px-5 py-4"><span class="badge-bestseller">Amazon</span></td>
+            <td class="px-5 py-4">Dos cestas, no hay que voltear los alimentos</td>
+            <td class="px-5 py-4"><span class="inline-flex items-center gap-1 text-accent-dark font-semibold" aria-label="Valoración 4.6 sobre 5">★★★★★ <span class="text-slate-500 font-normal">4.6/5</span></span></td>
+            <td class="px-5 py-4 text-right"><a class="btn-buy btn-buy--amazon !min-h-0 !py-2 !px-4 !text-xs" data-affiliate="amazon" rel="nofollow sponsored noopener" target="_blank">Ver precio</a></td>
+          </tr>
 
-    <!-- ======================= HERO ======================= -->
-    <section class="max-w-6xl mx-auto px-5 pt-16 pb-14 md:pt-24 md:pb-20">
-      <div class="max-w-2xl">
-        <h1 class="font-head text-4xl md:text-5xl font-semibold leading-tight">
-          Equipa tu casa con tecnología que realmente ahorra tiempo, no la que más se anuncia
-        </h1>
-        <p class="mt-5 text-lg text-slate-600 leading-relaxed">
-          Analizamos freidoras de aire, robots aspiradores y purificadores probando autonomía real,
-          consumo eléctrico y durabilidad, para que elijas el gadget que de verdad te va a servir
-          en lugar de dejarte llevar por la publicidad.
-        </p>
-        <div class="mt-8 flex flex-wrap items-center gap-4">
-          <a href="#top-mes" class="inline-flex items-center rounded-md bg-accent px-6 py-3 text-sm font-semibold text-base-900 hover:bg-accent-dark transition-colors">
-            Ver Top del Mes
-          </a>
-          <a href="#faq" class="text-sm font-medium text-slate-600 hover:text-base-900">
-            ¿Dudas antes de comprar?
-          </a>
+          <tr class="hover:bg-slate-50">
+            <td class="px-5 py-4"><a href="#robot-aspirador-autovaciado" class="font-semibold hover:text-accent-dark">Robot aspirador con autovaciado</a><p class="text-slate-500">4200 Pa · hasta 300 m²</p></td>
+            <td class="px-5 py-4"><span class="badge-bestseller">Amazon</span></td>
+            <td class="px-5 py-4">Hasta 7 semanas sin tocar el polvo</td>
+            <td class="px-5 py-4"><span class="inline-flex items-center gap-1 text-accent-dark font-semibold" aria-label="Valoración 4.5 sobre 5">★★★★★ <span class="text-slate-500 font-normal">4.5/5</span></span></td>
+            <td class="px-5 py-4 text-right"><a class="btn-buy btn-buy--amazon !min-h-0 !py-2 !px-4 !text-xs" data-affiliate="amazon" rel="nofollow sponsored noopener" target="_blank">Ver precio</a></td>
+          </tr>
+
+          <tr class="hover:bg-slate-50">
+            <td class="px-5 py-4"><a href="#picadora-recargable" class="font-semibold hover:text-accent-dark">Picadora recargable multifunción</a><p class="text-slate-500">USB-C · cuchillas desmontables</p></td>
+            <td class="px-5 py-4"><span class="badge-viral">TikTok</span></td>
+            <td class="px-5 py-4">Pica ajo y cebolla en segundos, sin cables</td>
+            <td class="px-5 py-4"><span class="inline-flex items-center gap-1 text-accent-dark font-semibold" aria-label="Valoración 4.3 sobre 5">★★★★★ <span class="text-slate-500 font-normal">4.3/5</span></span></td>
+            <td class="px-5 py-4 text-right"><a class="btn-buy btn-buy--tiktok !min-h-0 !py-2 !px-4 !text-xs" data-affiliate="tiktok" rel="nofollow sponsored noopener" target="_blank">Ver oferta</a></td>
+          </tr>
+
+          <tr class="hover:bg-slate-50">
+            <td class="px-5 py-4"><a href="#purificador-aire-inteligente" class="font-semibold hover:text-accent-dark">Purificador de aire inteligente</a><p class="text-slate-500">23 W · hasta 50 m²</p></td>
+            <td class="px-5 py-4"><span class="badge-bestseller">Amazon</span></td>
+            <td class="px-5 py-4">Silencioso, 22 dB en modo noche</td>
+            <td class="px-5 py-4"><span class="inline-flex items-center gap-1 text-accent-dark font-semibold" aria-label="Valoración 4.7 sobre 5">★★★★★ <span class="text-slate-500 font-normal">4.7/5</span></span></td>
+            <td class="px-5 py-4 text-right"><a class="btn-buy btn-buy--amazon !min-h-0 !py-2 !px-4 !text-xs" data-affiliate="amazon" rel="nofollow sponsored noopener" target="_blank">Ver precio</a></td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- CONEXIÓN CON AHORRO -->
+  <section class="max-w-6xl mx-auto px-5 py-14">
+    <div class="rounded-xl bg-base-900 text-white p-8 md:p-10 flex flex-col md:flex-row md:items-center gap-6 justify-between">
+      <div>
+        <h2 class="font-head text-2xl font-semibold">¿Sabes cuánto gastan realmente tus electrodomésticos?</h2>
+        <p class="mt-2 text-slate-300 max-w-xl">Antes de comprar, entiende qué te va a costar cada mes: comparamos freidora de aire vs. horno y te damos trucos de mantenimiento que alargan la vida de tus aparatos.</p>
+      </div>
+      <a href="#ahorro" class="shrink-0 inline-flex items-center rounded-md bg-accent px-6 py-3 text-sm font-semibold text-base-900 hover:bg-accent-dark transition-colors">Ver guías de ahorro</a>
+    </div>
+  </section>
+
+
+
+<section id="tiktok" class="scroll-mt-20 border-t border-slate-200">
+
+  <section class="max-w-4xl mx-auto px-5 pt-14 pb-8">
+    <span class="badge-viral">🔥 En tendencia hoy</span>
+    <h1 class="font-head text-4xl md:text-5xl font-semibold leading-tight mt-4">
+      Gadgets virales de TikTok Shop: ¿moda pasajera o de verdad funcionan?
+    </h1>
+    <p class="mt-5 text-lg text-slate-600 leading-relaxed">
+      Cada semana aparece un gadget nuevo que arrasa en TikTok con millones de reproducciones.
+      Hemos revisado los cinco que más se repiten en nuestro FYP para explicarte por qué se
+      han vuelto virales, qué problema real resuelven y si el hype está justificado o es puro
+      marketing. Sin relleno: análisis honesto, pros, contras y veredicto.
+    </p>
+  </section>
+
+  <section class="max-w-4xl mx-auto px-5 pb-20 space-y-16">
+
+    <!-- PRODUCTO 1: Picadora recargable -->
+    <article id="picadora-recargable" class="scroll-mt-20">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="badge-viral">Viral</span>
+        <span class="text-sm text-slate-500">+40M de visualizaciones acumuladas bajo el hashtag #choppergadget</span>
+      </div>
+      <h2 class="font-head text-2xl md:text-3xl font-semibold">Picadora eléctrica recargable multifunción</h2>
+
+      <div class="aspect-[21/9] w-full rounded-xl my-6 flex items-center justify-center bg-gradient-to-br from-amber-100 to-amber-50 border border-amber-200/60">
+        <svg class="h-16 w-16 text-accent-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.3"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v3m-5 2h10l-1 12H8L7 8zM9 11v6m6-6v6"/></svg>
+      </div>
+
+      <h3 class="font-semibold text-lg mt-6 mb-2">¿Por qué se ha hecho viral?</h3>
+      <p class="text-slate-600 leading-relaxed">
+        El vídeo tipo que la popularizó es siempre el mismo: alguien mete ajo, cebolla o frutos
+        secos en el vaso, pulsa un botón y en cinco segundos hay una picadura perfecta sin haber
+        tocado un cuchillo ni haber llorado picando cebolla. Es contenido muy satisfactorio de ver
+        (el llamado "oddly satisfying") y además resuelve un problema universal: pocas tareas de
+        cocina dan tanta pereza como picar ajo fino a diario.
+      </p>
+
+      <h3 class="font-semibold text-lg mt-6 mb-2">Qué problema resuelve</h3>
+      <p class="text-slate-600 leading-relaxed">
+        Sustituye el picado manual para cantidades pequeñas y medianas: ajo, cebolla, jengibre,
+        frutos secos, hierbas o incluso carne para albóndigas. Al ser recargable por USB-C, no
+        depende de estar cerca de un enchufe ni ocupa el espacio de un robot de cocina grande, lo
+        que la hace especialmente popular en cocinas pequeñas y pisos de estudiantes.
+      </p>
+
+      <h3 class="font-semibold text-lg mt-6 mb-2">¿Vale la pena? Nuestro veredicto</h3>
+      <p class="text-slate-600 leading-relaxed">
+        Sí, con matices. Para picar ajo, cebolla y frutos secos en cantidades de hasta 2-3
+        personas funciona realmente bien y ahorra tiempo cada día. No sustituye a un robot de
+        cocina si cocinas para muchas personas o necesitas texturas muy finas y homogéneas
+        (tiende a picar de forma irregular si se pulsa de más). Por su precio de entre 15 y 25 €,
+        la relación coste-utilidad es buena si cocinas casi a diario.
+      </p>
+
+      <div class="mt-5 grid sm:grid-cols-2 gap-4 text-sm">
+        <div class="rounded-lg border border-emerald-200 bg-emerald-50 p-4">
+          <h4 class="font-semibold text-emerald-700 mb-2">A favor</h4>
+          <ul class="space-y-1.5 text-slate-700">
+            <li>Recargable, sin cables ni pilas</li>
+            <li>Cuchillas desmontables aptas para lavavajillas</li>
+            <li>Evita el picor de manos y ojos al picar cebolla/ajo</li>
+          </ul>
         </div>
-
-        <dl class="mt-12 grid grid-cols-3 gap-6 border-t border-slate-200 pt-6">
-          <div>
-            <dt class="font-head text-2xl font-semibold">4</dt>
-            <dd class="text-sm text-slate-500">categorías analizadas</dd>
-          </div>
-          <div>
-            <dt class="font-head text-2xl font-semibold">25+</dt>
-            <dd class="text-sm text-slate-500">productos evaluados</dd>
-          </div>
-          <div>
-            <dt class="font-head text-2xl font-semibold">2026</dt>
-            <dd class="text-sm text-slate-500">guía actualizada</dd>
-          </div>
-        </dl>
-      </div>
-    </section>
-
-    <!-- ======================= TABLA COMPARATIVA ======================= -->
-    <section id="top-mes" class="max-w-6xl mx-auto px-5 py-14 scroll-mt-20">
-      <div class="mb-8 max-w-2xl">
-        <h2 class="font-head text-3xl font-semibold">Top Elecciones del Hogar en 2026</h2>
-        <p class="mt-3 text-slate-600">Una selección por categoría, para no perder horas comparando fichas técnicas.</p>
+        <div class="rounded-lg border border-rose-200 bg-rose-50 p-4">
+          <h4 class="font-semibold text-rose-700 mb-2">En contra</h4>
+          <ul class="space-y-1.5 text-slate-700">
+            <li>Capacidad limitada (150-200 ml), no vale para grandes cantidades</li>
+            <li>Picado irregular si se pulsa demasiado tiempo seguido</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="overflow-x-auto border border-slate-200 rounded-lg">
-        <table class="w-full min-w-[760px] text-left text-sm">
+      <div class="cta-block cta-block--tiktok mt-8">
+        <div>
+          <p class="text-white font-head text-lg font-semibold">¿Te convence para tu cocina?</p>
+          <p class="text-slate-300 text-sm mt-1">Disponible con envío rápido a través de TikTok Shop.</p>
+        </div>
+        <a class="btn-buy btn-buy--tiktok" data-affiliate="tiktok" rel="nofollow sponsored noopener" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82s.51.5 0 0A4.278 4.278 0 0 1 15.54 3h-3.09v12.4a2.592 2.592 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6 0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.33 2.76 5.7 5.69 5.7 3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48z"/></svg>
+          Adquiere este producto en TikTok Shop
+        </a>
+      </div>
+    </article>
+
+    <hr class="border-slate-200">
+
+    <!-- PRODUCTO 2: Fregona/cepillo eléctrico extensible -->
+    <article id="cepillo-electrico-juntas" class="scroll-mt-20">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="badge-viral">Viral</span>
+        <span class="text-sm text-slate-500">Protagonista de miles de vídeos de "limpieza profunda"</span>
+      </div>
+      <h2 class="font-head text-2xl md:text-3xl font-semibold">Cepillo eléctrico extensible para juntas y azulejos</h2>
+
+      <div class="aspect-[21/9] w-full rounded-xl my-6 flex items-center justify-center bg-gradient-to-br from-sky-100 to-sky-50 border border-sky-200/60">
+        <svg class="h-16 w-16 text-sky-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.3"><path stroke-linecap="round" stroke-linejoin="round" d="M4 20l6-6M14 4l6 6M9 9l6 6M6 18l2 2M15 5l2 2"/></svg>
+      </div>
+
+      <h3 class="font-semibold text-lg mt-6 mb-2">¿Por qué se ha hecho viral?</h3>
+      <p class="text-slate-600 leading-relaxed">
+        Este es el gadget rey del subgénero "clean-tok": vídeos en time-lapse donde la mugre
+        negra de las juntas del baño o de la cocina desaparece en segundos con un cepillo
+        giratorio. El contraste visual (antes/después) es adictivo de ver y toca una fibra muy
+        concreta: la sensación de que tu casa nunca está tan limpia como en esos vídeos.
+      </p>
+
+      <h3 class="font-semibold text-lg mt-6 mb-2">Qué problema resuelve</h3>
+      <p class="text-slate-600 leading-relaxed">
+        Limpiar juntas de azulejos, rejillas de fogones, ruedas de sillas de ducha o marcos de
+        ventana a mano con un cepillo normal es lento y machaca la muñeca. Este gadget monta un
+        cabezal giratorio a batería en un mango extensible, así que llegas a zonas bajas o altas
+        sin agacharte ni subirte a un taburete, y la rotación hace el trabajo de fricción por ti.
+      </p>
+
+      <h3 class="font-semibold text-lg mt-6 mb-2">¿Vale la pena? Nuestro veredicto</h3>
+      <p class="text-slate-600 leading-relaxed">
+        Vale la pena si haces limpiezas profundas periódicas (mensuales o trimestrales) más que
+        para el día a día. La autonomía real suele rondar los 60-90 minutos de uso continuo, que
+        es de sobra para un baño y una cocina completos. Ojo con las versiones más baratas: los
+        cabezales de plástico blando se desgastan en pocos meses de uso intensivo; conviene elegir
+        modelos con cabezales intercambiables.
+      </p>
+
+      <div class="mt-5 grid sm:grid-cols-2 gap-4 text-sm">
+        <div class="rounded-lg border border-emerald-200 bg-emerald-50 p-4">
+          <h4 class="font-semibold text-emerald-700 mb-2">A favor</h4>
+          <ul class="space-y-1.5 text-slate-700">
+            <li>Mango extensible: cero agacharse ni subir a taburetes</li>
+            <li>Varios cabezales para distintas superficies</li>
+            <li>Reduce el esfuerzo de fricción manual notablemente</li>
+          </ul>
+        </div>
+        <div class="rounded-lg border border-rose-200 bg-rose-50 p-4">
+          <h4 class="font-semibold text-rose-700 mb-2">En contra</h4>
+          <ul class="space-y-1.5 text-slate-700">
+            <li>Los cabezales se desgastan; hay que reponerlos</li>
+            <li>Ruidoso en superficies duras (mármol, gres)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cta-block cta-block--tiktok mt-8">
+        <div>
+          <p class="text-white font-head text-lg font-semibold">Dile adiós a fregar juntas de rodillas</p>
+          <p class="text-slate-300 text-sm mt-1">Consíguelo con la oferta activa en TikTok Shop.</p>
+        </div>
+        <a class="btn-buy btn-buy--tiktok" data-affiliate="tiktok" rel="nofollow sponsored noopener" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82s.51.5 0 0A4.278 4.278 0 0 1 15.54 3h-3.09v12.4a2.592 2.592 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6 0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.33 2.76 5.7 5.69 5.7 3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48z"/></svg>
+          Adquiere este producto en TikTok Shop
+        </a>
+      </div>
+    </article>
+
+    <hr class="border-slate-200">
+
+    <!-- PRODUCTO 3: Recogedor aspirador automático -->
+    <article id="recogedor-aspirador" class="scroll-mt-20">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="badge-viral">Viral</span>
+        <span class="text-sm text-slate-500">Popular entre dueños de mascotas y familias con niños pequeños</span>
+      </div>
+      <h2 class="font-head text-2xl md:text-3xl font-semibold">Recogedor aspirador automático de sobremesa</h2>
+
+      <div class="aspect-[21/9] w-full rounded-xl my-6 flex items-center justify-center bg-gradient-to-br from-violet-100 to-violet-50 border border-violet-200/60">
+        <svg class="h-16 w-16 text-violet-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.3"><rect x="4" y="9" width="16" height="9" rx="2"/><path stroke-linecap="round" d="M8 9V6a4 4 0 018 0v3"/></svg>
+      </div>
+
+      <h3 class="font-semibold text-lg mt-6 mb-2">¿Por qué se ha hecho viral?</h3>
+      <p class="text-slate-600 leading-relaxed">
+        Es el gadget "empuja y desaparece": deslizas el aparato sobre migas de pan, pelo de
+        mascota o restos de comida en la encimera o la mesa, y todo se absorbe al instante sin
+        recogedor ni bayeta. El formato vídeo corto de 10-15 segundos encaja perfecto con el
+        consumo rápido de TikTok, y el resultado es inmediato y visualmente muy claro.
+      </p>
+
+      <h3 class="font-semibold text-lg mt-6 mb-2">Qué problema resuelve</h3>
+      <p class="text-slate-600 leading-relaxed">
+        Evita el gesto repetitivo de coger recogedor y cepillo (o una bayeta húmeda) para migas
+        secas varias veces al día, especialmente útil en mesas de cocina con niños, jaulas de
+        mascotas o zonas de trabajo con recortes de papel. No sustituye a una aspiradora normal
+        para suelo: está pensado para superficies planas de mesa o encimera.
+      </p>
+
+      <h3 class="font-semibold text-lg mt-6 mb-2">¿Vale la pena? Nuestro veredicto</h3>
+      <p class="text-slate-600 leading-relaxed">
+        Depende del uso. Si comes a menudo en la mesa con niños pequeños o tienes mascota, el
+        ahorro de gestos diarios es real y notable. Si vives solo y cocinas poco, es un gadget
+        prescindible: un cepillo de mesa de toda la vida cumple casi la misma función. El depósito
+        es pequeño (hay que vaciarlo cada pocos usos), así que no esperes autonomía de aspiradora
+        grande.
+      </p>
+
+      <div class="mt-5 grid sm:grid-cols-2 gap-4 text-sm">
+        <div class="rounded-lg border border-emerald-200 bg-emerald-50 p-4">
+          <h4 class="font-semibold text-emerald-700 mb-2">A favor</h4>
+          <ul class="space-y-1.5 text-slate-700">
+            <li>Uso instantáneo, sin recogedor ni bayeta</li>
+            <li>Silencioso comparado con una aspiradora de mano</li>
+            <li>Tamaño compacto, cabe en un cajón de cocina</li>
+          </ul>
+        </div>
+        <div class="rounded-lg border border-rose-200 bg-rose-50 p-4">
+          <h4 class="font-semibold text-rose-700 mb-2">En contra</h4>
+          <ul class="space-y-1.5 text-slate-700">
+            <li>Depósito muy pequeño, requiere vaciados frecuentes</li>
+            <li>No sirve para líquidos ni para suelo</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cta-block cta-block--tiktok mt-8">
+        <div>
+          <p class="text-white font-head text-lg font-semibold">Migas y pelos de mascota, fuera en segundos</p>
+          <p class="text-slate-300 text-sm mt-1">Cómpralo directamente desde TikTok Shop.</p>
+        </div>
+        <a class="btn-buy btn-buy--tiktok" data-affiliate="tiktok" rel="nofollow sponsored noopener" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82s.51.5 0 0A4.278 4.278 0 0 1 15.54 3h-3.09v12.4a2.592 2.592 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6 0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.33 2.76 5.7 5.69 5.7 3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48z"/></svg>
+          Adquiere este producto en TikTok Shop
+        </a>
+      </div>
+    </article>
+
+    <hr class="border-slate-200">
+
+    <!-- PRODUCTO 4: Organizador magnético de especias -->
+    <article id="organizador-magnetico-especias" class="scroll-mt-20">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="badge-viral">Viral</span>
+        <span class="text-sm text-slate-500">Habitual en vídeos de "organización de cocina" (#pantryorganization)</span>
+      </div>
+      <h2 class="font-head text-2xl md:text-3xl font-semibold">Organizador magnético de especias</h2>
+
+      <div class="aspect-[21/9] w-full rounded-xl my-6 flex items-center justify-center bg-gradient-to-br from-rose-100 to-rose-50 border border-rose-200/60">
+        <svg class="h-16 w-16 text-rose-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.3"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+      </div>
+
+      <h3 class="font-semibold text-lg mt-6 mb-2">¿Por qué se ha hecho viral?</h3>
+      <p class="text-slate-600 leading-relaxed">
+        Pertenece al género "satisfacción visual de orden": tarros idénticos, etiquetados y
+        pegados por imán a la parte interior de una puerta de armario o a la nevera, formando una
+        cuadrícula perfecta. Estéticamente funciona muy bien en foto y vídeo, y conecta con la
+        tendencia más amplia de organización del hogar tipo "pantry makeover".
+      </p>
+
+      <h3 class="font-semibold text-lg mt-6 mb-2">Qué problema resuelve</h3>
+      <p class="text-slate-600 leading-relaxed">
+        Acaba con el cajón o armario de especias desordenado donde nunca encuentras el pimentón
+        cuando lo necesitas. Al fijarse por imán a una superficie metálica vertical, libera espacio
+        de encimera y de cajones, algo especialmente valioso en cocinas pequeñas donde cada
+        centímetro de almacenaje cuenta.
+      </p>
+
+      <h3 class="font-semibold text-lg mt-6 mb-2">¿Vale la pena? Nuestro veredicto</h3>
+      <p class="text-slate-600 leading-relaxed">
+        Sí, es de los gadgets virales con mejor relación entre lo que promete y lo que cumple,
+        precisamente porque no es "tecnología": son tarros con imán, sin partes electrónicas que
+        puedan fallar. El único requisito real es tener una superficie metálica (nevera, panel o
+        puerta de armario metálica) donde pegarlo; si tu cocina es toda de madera o melamina, no
+        te va a servir sin comprar además una placa metálica adhesiva.
+      </p>
+
+      <div class="mt-5 grid sm:grid-cols-2 gap-4 text-sm">
+        <div class="rounded-lg border border-emerald-200 bg-emerald-50 p-4">
+          <h4 class="font-semibold text-emerald-700 mb-2">A favor</h4>
+          <ul class="space-y-1.5 text-slate-700">
+            <li>Sin electrónica: nada que se rompa o se descargue</li>
+            <li>Libera espacio de cajón y encimera</li>
+            <li>Los tarros suelen ser aptos para lavavajillas</li>
+          </ul>
+        </div>
+        <div class="rounded-lg border border-rose-200 bg-rose-50 p-4">
+          <h4 class="font-semibold text-rose-700 mb-2">En contra</h4>
+          <ul class="space-y-1.5 text-slate-700">
+            <li>Necesita superficie metálica; si no la tienes, coste extra</li>
+            <li>Tarros pequeños: hay que rellenar más a menudo</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cta-block cta-block--tiktok mt-8">
+        <div>
+          <p class="text-white font-head text-lg font-semibold">Organiza tu cocina de un vistazo</p>
+          <p class="text-slate-300 text-sm mt-1">Disponible ahora en TikTok Shop.</p>
+        </div>
+        <a class="btn-buy btn-buy--tiktok" data-affiliate="tiktok" rel="nofollow sponsored noopener" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82s.51.5 0 0A4.278 4.278 0 0 1 15.54 3h-3.09v12.4a2.592 2.592 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6 0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.33 2.76 5.7 5.69 5.7 3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48z"/></svg>
+          Adquiere este producto en TikTok Shop
+        </a>
+      </div>
+    </article>
+
+    <hr class="border-slate-200">
+
+    <!-- PRODUCTO 5: Sellador térmico portátil -->
+    <article id="sellador-termico-portatil" class="scroll-mt-20">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="badge-viral">Viral</span>
+        <span class="text-sm text-slate-500">Muy compartido en cuentas de "food storage hacks" y anti-desperdicio</span>
+      </div>
+      <h2 class="font-head text-2xl md:text-3xl font-semibold">Sellador térmico portátil de bolsas</h2>
+
+      <div class="aspect-[21/9] w-full rounded-xl my-6 flex items-center justify-center bg-gradient-to-br from-orange-100 to-orange-50 border border-orange-200/60">
+        <svg class="h-16 w-16 text-orange-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.3"><rect x="4" y="10" width="16" height="4" rx="1"/><path stroke-linecap="round" d="M7 10V6a2 2 0 012-2h6a2 2 0 012 2v4M7 14v4a2 2 0 002 2h6a2 2 0 002-2v-4"/></svg>
+      </div>
+
+      <h3 class="font-semibold text-lg mt-6 mb-2">¿Por qué se ha hecho viral?</h3>
+      <p class="text-slate-600 leading-relaxed">
+        Es un clásico recurrente cada vez que suben el precio de la comida: un aparatito del
+        tamaño de un mechero que sella bolsas de patatas fritas, cereales o congelados con calor,
+        dejándolas herméticas. El vídeo tipo muestra una bolsa abierta chorreando aceite o
+        perdiendo el crujiente, y cómo el sellado soluciona el problema en dos segundos.
+      </p>
+
+      <h3 class="font-semibold text-lg mt-6 mb-2">Qué problema resuelve</h3>
+      <p class="text-slate-600 leading-relaxed">
+        Las pinzas de bolsa tradicionales no son herméticas del todo y con el tiempo los alimentos
+        pierden textura o cogen humedad. Este sellador aplica calor directo sobre el plástico para
+        fundirlo y cerrarlo por completo, alargando la vida útil de snacks, congelados y bolsas de
+        cereales, y reduciendo el desperdicio de comida a medio abrir.
+      </p>
+
+      <h3 class="font-semibold text-lg mt-6 mb-2">¿Vale la pena? Nuestro veredicto</h3>
+      <p class="text-slate-600 leading-relaxed">
+        Sí, y es de los gadgets virales más baratos y con retorno más rápido: por menos de 10 €
+        evitas tirar comida que se ha quedado correosa o rancia por no cerrarse bien. Eso sí, no
+        es un sellador al vacío real (no extrae el aire), simplemente cierra el plástico, así que
+        no alarga la conservación tanto como una envasadora al vacío, pero cumple de sobra para
+        el uso diario de despensa.
+      </p>
+
+      <div class="mt-5 grid sm:grid-cols-2 gap-4 text-sm">
+        <div class="rounded-lg border border-emerald-200 bg-emerald-50 p-4">
+          <h4 class="font-semibold text-emerald-700 mb-2">A favor</h4>
+          <ul class="space-y-1.5 text-slate-700">
+            <li>Precio muy bajo, se amortiza con la comida que ya no se tira</li>
+            <li>Tamaño de bolsillo, funciona con pilas o USB según modelo</li>
+            <li>Cierre hermético real frente a humedad y aire</li>
+          </ul>
+        </div>
+        <div class="rounded-lg border border-rose-200 bg-rose-50 p-4">
+          <h4 class="font-semibold text-rose-700 mb-2">En contra</h4>
+          <ul class="space-y-1.5 text-slate-700">
+            <li>No hace vacío, solo sella: conservación algo menor que una envasadora</li>
+            <li>Solo funciona bien sobre plástico fino tipo bolsa de snack</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cta-block cta-block--tiktok mt-8">
+        <div>
+          <p class="text-white font-head text-lg font-semibold">Deja de tirar comida por bolsas mal cerradas</p>
+          <p class="text-slate-300 text-sm mt-1">Pídelo hoy mismo en TikTok Shop.</p>
+        </div>
+        <a class="btn-buy btn-buy--tiktok" data-affiliate="tiktok" rel="nofollow sponsored noopener" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82s.51.5 0 0A4.278 4.278 0 0 1 15.54 3h-3.09v12.4a2.592 2.592 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6 0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.33 2.76 5.7 5.69 5.7 3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48z"/></svg>
+          Adquiere este producto en TikTok Shop
+        </a>
+      </div>
+    </article>
+
+  </section>
+
+  <section class="max-w-4xl mx-auto px-5 pb-20">
+    <div class="rounded-xl border border-slate-200 bg-white p-6">
+      <p class="text-slate-600">
+        ¿Buscas electrodomésticos más grandes, de los que se compran pensando a largo plazo?
+        Revisa nuestro análisis de <a href="#amazon" class="text-accent-dark font-semibold hover:underline">los más vendidos en Amazon</a>,
+        o aprende a <a href="#ahorro" class="text-accent-dark font-semibold hover:underline">ahorrar en la factura de la luz</a> eligiendo bien tus aparatos.
+      </p>
+    </div>
+  </section>
+
+</section>
+
+<section id="amazon" class="scroll-mt-20 border-t border-slate-200">
+
+  <section class="max-w-4xl mx-auto px-5 pt-14 pb-8">
+    <span class="badge-bestseller">⭐ Top ventas</span>
+    <h1 class="font-head text-4xl md:text-5xl font-semibold leading-tight mt-4">
+      Los electrodomésticos más vendidos de Amazon, puestos a prueba
+    </h1>
+    <p class="mt-5 text-lg text-slate-600 leading-relaxed">
+      Estos cuatro aparatos lideran las categorías de cocina y hogar en Amazon España. Analizamos
+      su rendimiento real, su consumo eléctrico estimado y cuánto cuesta usarlos al mes, para que
+      compares con datos y no solo con estrellas.
+    </p>
+  </section>
+
+  <section class="max-w-4xl mx-auto px-5 pb-20 space-y-16">
+
+    <!-- PRODUCTO 1: Freidora de aire doble cesta -->
+    <article id="freidora-doble-cesta" class="scroll-mt-20">
+      <span class="badge-bestseller">Nº1 en Freidoras de aire</span>
+      <h2 class="font-head text-2xl md:text-3xl font-semibold mt-4">Freidora de aire de doble cesta (10 L / 2800 W)</h2>
+
+      <div class="aspect-[21/9] w-full rounded-xl my-6 flex items-center justify-center bg-gradient-to-br from-amber-100 to-amber-50 border border-amber-200/60">
+        <svg class="h-16 w-16 text-accent-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.3"><path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M6 7v11a2 2 0 002 2h8a2 2 0 002-2V7M9 7V5a2 2 0 012-2h2a2 2 0 012 2v2M10 11v5M14 11v5"/></svg>
+      </div>
+
+      <p class="text-slate-600 leading-relaxed">
+        Con dos cestas de 5 litros cada una y calentamiento independiente por zona, permite cocinar
+        dos platos a temperaturas distintas a la vez (por ejemplo, patatas a 200 °C y pescado a
+        180 °C) y sincronizar el final de cocción para servir todo caliente al mismo tiempo. El
+        interior es de acero con revestimiento antiadherente y las cestas se pueden meter en el
+        lavavajillas.
+      </p>
+
+      <h3 class="font-semibold text-lg mt-6 mb-2">Consumo eléctrico real</h3>
+      <p class="text-slate-600 leading-relaxed">
+        Su potencia nominal es de 2800 W, pero no consume esa potencia de forma constante: el
+        termostato la enciende y apaga en ciclos para mantener la temperatura, por lo que el
+        consumo medio real durante una cocción de 20 minutos ronda los 0,5-0,6 kWh. A un precio
+        medio de 0,15 €/kWh, una cocción completa de 20 minutos cuesta aproximadamente
+        <strong>0,08-0,09 €</strong>, sensiblemente menos que precalentar un horno convencional
+        para la misma cantidad de comida.
+      </p>
+
+      <h3 class="font-semibold text-lg mt-6 mb-2">Pros y contras</h3>
+      <div class="grid sm:grid-cols-2 gap-4 text-sm mt-3">
+        <div class="rounded-lg border border-emerald-200 bg-emerald-50 p-4">
+          <h4 class="font-semibold text-emerald-700 mb-2">A favor</h4>
+          <ul class="space-y-1.5 text-slate-700">
+            <li>Dos zonas de cocción independientes y sincronizables</li>
+            <li>No hace falta precalentar como en un horno</li>
+            <li>Cestas antiadherentes aptas para lavavajillas</li>
+          </ul>
+        </div>
+        <div class="rounded-lg border border-rose-200 bg-rose-50 p-4">
+          <h4 class="font-semibold text-rose-700 mb-2">En contra</h4>
+          <ul class="space-y-1.5 text-slate-700">
+            <li>Voluminosa: pesa más de 7 kg y ocupa bastante encimera</li>
+            <li>Ruido de ventilador perceptible en cocinas abiertas al salón</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cta-block cta-block--amazon mt-8">
+        <div>
+          <p class="font-head text-lg font-semibold text-base-900">¿Lista para cocinar sin aceite ni horno?</p>
+          <p class="text-sm text-amber-900/70 mt-1">Consulta el precio y las ofertas activas en Amazon.</p>
+        </div>
+        <a class="btn-buy btn-buy--amazon" data-affiliate="amazon" rel="nofollow sponsored noopener" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l9 4.9v10.2L12 22l-9-4.9V6.9L12 2zm0 2.3L5 8v8l7 3.8 7-3.8V8l-7-3.7z"/></svg>
+          Ver precio y oferta en Amazon
+        </a>
+      </div>
+    </article>
+
+    <hr class="border-slate-200">
+
+    <!-- PRODUCTO 2: Robot aspirador autovaciado -->
+    <article id="robot-aspirador-autovaciado" class="scroll-mt-20">
+      <span class="badge-bestseller">Nº1 en Robots aspiradores</span>
+      <h2 class="font-head text-2xl md:text-3xl font-semibold mt-4">Robot aspirador con estación de autovaciado</h2>
+
+      <div class="aspect-[21/9] w-full rounded-xl my-6 flex items-center justify-center bg-gradient-to-br from-slate-200 to-slate-100 border border-slate-300/60">
+        <svg class="h-16 w-16 text-slate-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2.5"/><path stroke-linecap="round" d="M12 4v2M12 18v2M4 12h2M18 12h2"/></svg>
+      </div>
+
+      <p class="text-slate-600 leading-relaxed">
+        Combina navegación láser (LiDAR) con 4200 Pa de succión y una base que vacía
+        automáticamente el depósito del robot en una bolsa de mayor capacidad, permitiendo hasta
+        7 semanas sin tener que tocar el polvo directamente. Incluye fregado simultáneo con
+        depósito de agua independiente para suelos duros.
+      </p>
+
+      <h3 class="font-semibold text-lg mt-6 mb-2">Consumo eléctrico real</h3>
+      <p class="text-slate-600 leading-relaxed">
+        El robot en sí consume poco durante la limpieza (motor de succión entre 45-65 W según
+        modo), pero la base de autovaciado da un pico breve de succión de hasta 500 W durante
+        unos 10-15 segundos cada vez que vacía. Sumando limpieza diaria (~40 min) más vaciados,
+        el consumo mensual estimado ronda los <strong>1,8-2,3 kWh al mes</strong>, en torno a
+        0,30-0,35 € mensuales al precio medio de la luz: uno de los electrodomésticos más
+        baratos de mantener de toda la casa.
+      </p>
+
+      <h3 class="font-semibold text-lg mt-6 mb-2">Pros y contras</h3>
+      <div class="grid sm:grid-cols-2 gap-4 text-sm mt-3">
+        <div class="rounded-lg border border-emerald-200 bg-emerald-50 p-4">
+          <h4 class="font-semibold text-emerald-700 mb-2">A favor</h4>
+          <ul class="space-y-1.5 text-slate-700">
+            <li>Autovaciado: semanas sin tocar el depósito de polvo</li>
+            <li>Mapeo por app, zonas prohibidas y programación por horario</li>
+            <li>Consumo eléctrico mensual muy bajo</li>
+          </ul>
+        </div>
+        <div class="rounded-lg border border-rose-200 bg-rose-50 p-4">
+          <h4 class="font-semibold text-rose-700 mb-2">En contra</h4>
+          <ul class="space-y-1.5 text-slate-700">
+            <li>La base de autovaciado es voluminosa y necesita un hueco fijo</li>
+            <li>Se atasca con cables o alfombras de pelo largo</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cta-block cta-block--amazon mt-8">
+        <div>
+          <p class="font-head text-lg font-semibold text-base-900">Semanas sin tocar el polvo</p>
+          <p class="text-sm text-amber-900/70 mt-1">Revisa disponibilidad y precio actual en Amazon.</p>
+        </div>
+        <a class="btn-buy btn-buy--amazon" data-affiliate="amazon" rel="nofollow sponsored noopener" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l9 4.9v10.2L12 22l-9-4.9V6.9L12 2zm0 2.3L5 8v8l7 3.8 7-3.8V8l-7-3.7z"/></svg>
+          Ver precio y oferta en Amazon
+        </a>
+      </div>
+    </article>
+
+    <hr class="border-slate-200">
+
+    <!-- PRODUCTO 3: Purificador de aire inteligente -->
+    <article id="purificador-aire-inteligente" class="scroll-mt-20">
+      <span class="badge-bestseller">Nº1 en Purificadores de aire</span>
+      <h2 class="font-head text-2xl md:text-3xl font-semibold mt-4">Purificador de aire inteligente de bajo consumo</h2>
+
+      <div class="aspect-[21/9] w-full rounded-xl my-6 flex items-center justify-center bg-gradient-to-br from-cyan-100 to-cyan-50 border border-cyan-200/60">
+        <svg class="h-16 w-16 text-cyan-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.3"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8h10a3 3 0 100-6M4 14h13a3 3 0 110 6M4 20h8"/></svg>
+      </div>
+
+      <p class="text-slate-600 leading-relaxed">
+        Filtro HEPA H13 de tres etapas (pre-filtro, carbón activo y HEPA) que retiene hasta el
+        99,97% de partículas de 0,3 micras, con sensor de calidad de aire que ajusta la velocidad
+        automáticamente y modo noche silencioso. Cubre estancias de hasta 50 m² de forma eficaz.
+      </p>
+
+      <h3 class="font-semibold text-lg mt-6 mb-2">Consumo eléctrico real</h3>
+      <p class="text-slate-600 leading-relaxed">
+        En modo automático (velocidad baja-media la mayor parte del día) consume entre 5-23 W
+        según la calidad del aire detectada. Dejándolo encendido 24 horas al día todo el mes, el
+        gasto estimado es de <strong>3,6-8,3 kWh al mes</strong>, es decir, entre 0,55 € y 1,25 €
+        mensuales: menos de lo que cuesta una sola carga de un móvil todos los días.
+      </p>
+
+      <h3 class="font-semibold text-lg mt-6 mb-2">Pros y contras</h3>
+      <div class="grid sm:grid-cols-2 gap-4 text-sm mt-3">
+        <div class="rounded-lg border border-emerald-200 bg-emerald-50 p-4">
+          <h4 class="font-semibold text-emerald-700 mb-2">A favor</h4>
+          <ul class="space-y-1.5 text-slate-700">
+            <li>22 dB en modo noche, prácticamente inaudible</li>
+            <li>Consumo eléctrico muy bajo incluso 24h encendido</li>
+            <li>Control por app con histórico de calidad del aire</li>
+          </ul>
+        </div>
+        <div class="rounded-lg border border-rose-200 bg-rose-50 p-4">
+          <h4 class="font-semibold text-rose-700 mb-2">En contra</h4>
+          <ul class="space-y-1.5 text-slate-700">
+            <li>Los filtros de recambio son un gasto recurrente (cada 6-8 meses)</li>
+            <li>No cubre estancias grandes tipo loft o salón-cocina abierto</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cta-block cta-block--amazon mt-8">
+        <div>
+          <p class="font-head text-lg font-semibold text-base-900">Aire limpio por menos de 1€ al mes de luz</p>
+          <p class="text-sm text-amber-900/70 mt-1">Comprueba el precio actualizado en Amazon.</p>
+        </div>
+        <a class="btn-buy btn-buy--amazon" data-affiliate="amazon" rel="nofollow sponsored noopener" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l9 4.9v10.2L12 22l-9-4.9V6.9L12 2zm0 2.3L5 8v8l7 3.8 7-3.8V8l-7-3.7z"/></svg>
+          Ver precio y oferta en Amazon
+        </a>
+      </div>
+    </article>
+
+    <hr class="border-slate-200">
+
+    <!-- PRODUCTO 4: Deshumidificador compacto -->
+    <article id="deshumidificador-compacto" class="scroll-mt-20">
+      <span class="badge-bestseller">Nº1 en Deshumidificadores</span>
+      <h2 class="font-head text-2xl md:text-3xl font-semibold mt-4">Deshumidificador compacto para dormitorios y baños</h2>
+
+      <div class="aspect-[21/9] w-full rounded-xl my-6 flex items-center justify-center bg-gradient-to-br from-blue-100 to-blue-50 border border-blue-200/60">
+        <svg class="h-16 w-16 text-blue-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.3"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3c3 4 5 7 5 10a5 5 0 11-10 0c0-3 2-6 5-10z"/></svg>
+      </div>
+
+      <p class="text-slate-600 leading-relaxed">
+        Extrae hasta 500 ml de agua al día mediante tecnología Peltier, sin compresor, lo que lo
+        hace silencioso (menos de 38 dB) e ideal para dormitorios. Apagado automático al llenar el
+        depósito de 1 litro y modo continuo con tubo de drenaje opcional para uso 24h en baños sin
+        ventana.
+      </p>
+
+      <h3 class="font-semibold text-lg mt-6 mb-2">Consumo eléctrico real</h3>
+      <p class="text-slate-600 leading-relaxed">
+        Consume una media de 23-25 W en funcionamiento continuo, muy por debajo de los
+        deshumidificadores de compresor grandes (que rondan 200-350 W). Usándolo 8 horas cada
+        noche, el gasto mensual estimado es de <strong>5,5-6 kWh</strong>, unos 0,85-0,90 €
+        al mes. A cambio, extrae bastante menos agua por hora que un modelo de compresor, por lo
+        que en habitaciones muy húmedas (sótanos, garajes) tarda más en notarse el efecto.
+      </p>
+
+      <h3 class="font-semibold text-lg mt-6 mb-2">Pros y contras</h3>
+      <div class="grid sm:grid-cols-2 gap-4 text-sm mt-3">
+        <div class="rounded-lg border border-emerald-200 bg-emerald-50 p-4">
+          <h4 class="font-semibold text-emerald-700 mb-2">A favor</h4>
+          <ul class="space-y-1.5 text-slate-700">
+            <li>Silencioso, apto para dormir con él encendido</li>
+            <li>Consumo eléctrico bajo frente a modelos de compresor</li>
+            <li>Compacto y sin necesidad de instalación</li>
+          </ul>
+        </div>
+        <div class="rounded-lg border border-rose-200 bg-rose-50 p-4">
+          <h4 class="font-semibold text-rose-700 mb-2">En contra</h4>
+          <ul class="space-y-1.5 text-slate-700">
+            <li>Extracción de agua limitada; no apto para espacios muy húmedos o grandes</li>
+            <li>Depósito de 1 L requiere vaciados frecuentes en modo sin drenaje</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cta-block cta-block--amazon mt-8">
+        <div>
+          <p class="font-head text-lg font-semibold text-base-900">Adiós a la humedad y el moho en el baño</p>
+          <p class="text-sm text-amber-900/70 mt-1">Consulta stock y precio en Amazon.</p>
+        </div>
+        <a class="btn-buy btn-buy--amazon" data-affiliate="amazon" rel="nofollow sponsored noopener" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l9 4.9v10.2L12 22l-9-4.9V6.9L12 2zm0 2.3L5 8v8l7 3.8 7-3.8V8l-7-3.7z"/></svg>
+          Ver precio y oferta en Amazon
+        </a>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- TABLA COMPARATIVA DE CONSUMO -->
+  <section class="max-w-4xl mx-auto px-5 pb-20">
+    <h2 class="font-head text-2xl font-semibold mb-2">Comparativa de consumo eléctrico mensual</h2>
+    <p class="text-slate-600 mb-6">Estimado con uso habitual y precio medio de 0,15 €/kWh. Tu gasto real dependerá de tu tarifa y frecuencia de uso.</p>
+    <div class="overflow-x-auto border border-slate-200 rounded-lg">
+      <table class="w-full min-w-[600px] text-left text-sm">
+        <thead class="bg-slate-100 text-slate-600">
+          <tr>
+            <th scope="col" class="px-5 py-3 font-medium">Producto</th>
+            <th scope="col" class="px-5 py-3 font-medium">Potencia nominal</th>
+            <th scope="col" class="px-5 py-3 font-medium">Consumo mensual estimado</th>
+            <th scope="col" class="px-5 py-3 font-medium">Coste mensual aprox.</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-200">
+          <tr class="hover:bg-slate-50">
+            <td class="px-5 py-4 font-medium"><a href="#freidora-doble-cesta" class="hover:text-accent-dark">Freidora de aire doble cesta</a></td>
+            <td class="px-5 py-4">2800 W (uso intermitente)</td>
+            <td class="px-5 py-4">≈ 7-9 kWh (uso diario 20 min)</td>
+            <td class="px-5 py-4">1,05 € – 1,35 €</td>
+          </tr>
+          <tr class="hover:bg-slate-50">
+            <td class="px-5 py-4 font-medium"><a href="#robot-aspirador-autovaciado" class="hover:text-accent-dark">Robot aspirador + base autovaciado</a></td>
+            <td class="px-5 py-4">45-65 W (motor) + picos 500 W</td>
+            <td class="px-5 py-4">≈ 1,8-2,3 kWh</td>
+            <td class="px-5 py-4">0,30 € – 0,35 €</td>
+          </tr>
+          <tr class="hover:bg-slate-50">
+            <td class="px-5 py-4 font-medium"><a href="#purificador-aire-inteligente" class="hover:text-accent-dark">Purificador de aire (24h/día)</a></td>
+            <td class="px-5 py-4">5-23 W (modo auto)</td>
+            <td class="px-5 py-4">≈ 3,6-8,3 kWh</td>
+            <td class="px-5 py-4">0,55 € – 1,25 €</td>
+          </tr>
+          <tr class="hover:bg-slate-50">
+            <td class="px-5 py-4 font-medium"><a href="#deshumidificador-compacto" class="hover:text-accent-dark">Deshumidificador compacto (8h/noche)</a></td>
+            <td class="px-5 py-4">23-25 W</td>
+            <td class="px-5 py-4">≈ 5,5-6 kWh</td>
+            <td class="px-5 py-4">0,85 € – 0,90 €</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="mt-6 text-slate-600">
+      ¿Quieres entender mejor cómo se traduce todo esto en tu factura? Hemos preparado una
+      <a href="#freidora-vs-horno" class="text-accent-dark font-semibold hover:underline">comparativa detallada de consumo entre freidora de aire y horno</a>
+      dentro de nuestra sección de ahorro doméstico.
+    </p>
+  </section>
+
+</section>
+
+<section id="ahorro" class="scroll-mt-20 border-t border-slate-200">
+
+  <section class="max-w-4xl mx-auto px-5 pt-14 pb-8">
+    <h1 class="font-head text-4xl md:text-5xl font-semibold leading-tight">
+      Economía doméstica: gasta menos eligiendo (y cuidando) bien tus electrodomésticos
+    </h1>
+    <p class="mt-5 text-lg text-slate-600 leading-relaxed">
+      No hace falta pasar frío ni renunciar a comodidades para reducir la factura de la luz.
+      La mayor parte del ahorro está en qué aparatos eliges, cómo los mantienes y cuándo los
+      usas. Estas son nuestras cuatro guías más consultadas.
+    </p>
+    <nav aria-label="Guías de esta sección" class="mt-8 flex flex-wrap gap-3 text-sm">
+      <a href="#reducir-factura-luz" class="rounded-full border border-slate-300 px-4 py-2 hover:border-accent hover:text-accent-dark transition-colors">Reducir la factura de la luz</a>
+      <a href="#freidora-vs-horno" class="rounded-full border border-slate-300 px-4 py-2 hover:border-accent hover:text-accent-dark transition-colors">Freidora de aire vs. horno</a>
+      <a href="#mantenimiento-electrodomesticos" class="rounded-full border border-slate-300 px-4 py-2 hover:border-accent hover:text-accent-dark transition-colors">Alargar la vida de tus aparatos</a>
+      <a href="#evitar-desperdicio-comida" class="rounded-full border border-slate-300 px-4 py-2 hover:border-accent hover:text-accent-dark transition-colors">Evitar el desperdicio de comida</a>
+    </nav>
+  </section>
+
+  <section class="max-w-4xl mx-auto px-5 pb-20 space-y-20">
+
+    <!-- GUÍA 1 -->
+    <article id="reducir-factura-luz" class="scroll-mt-20">
+      <h2 class="font-head text-2xl md:text-3xl font-semibold">Cómo reducir la factura de la luz eligiendo bien tus electrodomésticos</h2>
+      <p class="mt-4 text-slate-600 leading-relaxed">
+        Antes de mirar la potencia contratada o cambiar de tarifa, revisa qué aparatos tienes
+        encendidos más horas al día. No es lo mismo un electrodoméstico de alta potencia que se
+        usa 20 minutos (como una freidora de aire) que uno de baja potencia encendido 24 horas
+        (como un purificador de aire): lo que importa no es la potencia máxima, sino los
+        <strong>kWh reales que consume al mes</strong>.
+      </p>
+      <ul class="mt-4 space-y-3 text-slate-600">
+        <li class="flex gap-3"><span class="text-accent-dark font-semibold">1.</span> Prioriza la etiqueta energética (A/B) frente al precio de compra: un aparato algo más caro pero eficiente se amortiza en 1-2 años de uso normal.</li>
+        <li class="flex gap-3"><span class="text-accent-dark font-semibold">2.</span> Sustituye electrodomésticos que "calientan mucho tiempo" (horno tradicional, calentador de resistencia) por alternativas de menor potencia o ciclo más corto cuando sea posible: por ejemplo, una <a href="#freidora-doble-cesta" class="text-accent-dark font-semibold hover:underline">freidora de aire de doble cesta</a> en lugar del horno para raciones pequeñas.</li>
+        <li class="flex gap-3"><span class="text-accent-dark font-semibold">3.</span> Evita dejar aparatos en modo "standby" innecesario: un robot aspirador o un purificador programado consume menos que uno encendido a máxima potencia todo el día sin sensor automático.</li>
+        <li class="flex gap-3"><span class="text-accent-dark font-semibold">4.</span> Aprovecha las franjas horarias más baratas de tu tarifa para los ciclos largos (lavadora, secadora, robot aspirador programado de madrugada).</li>
+      </ul>
+      <p class="mt-4 text-slate-600 leading-relaxed">
+        Ninguno de estos cambios exige gastar de golpe: empieza por el aparato que más horas
+        tienes encendido al día, normalmente el que más impacto tiene en la factura mensual.
+      </p>
+    </article>
+
+    <hr class="border-slate-200">
+
+    <!-- GUÍA 2 -->
+    <article id="freidora-vs-horno" class="scroll-mt-20">
+      <h2 class="font-head text-2xl md:text-3xl font-semibold">Freidora de aire vs. horno: ¿cuál gasta menos luz de verdad?</h2>
+      <p class="mt-4 text-slate-600 leading-relaxed">
+        Es la comparación que más nos preguntáis. La respuesta corta: para raciones pequeñas y
+        medianas, la freidora de aire gana casi siempre; para grandes cantidades o bandejas
+        completas, el horno se vuelve más eficiente por ración.
+      </p>
+
+      <div class="overflow-x-auto border border-slate-200 rounded-lg mt-6">
+        <table class="w-full min-w-[560px] text-left text-sm">
           <thead class="bg-slate-100 text-slate-600">
             <tr>
-              <th scope="col" class="px-5 py-3 font-medium">Producto</th>
-              <th scope="col" class="px-5 py-3 font-medium">Ventaja Clave</th>
-              <th scope="col" class="px-5 py-3 font-medium">Consumo / Capacidad</th>
-              <th scope="col" class="px-5 py-3 font-medium">Valoración</th>
-              <th scope="col" class="px-5 py-3 font-medium text-right">Comprar</th>
+              <th scope="col" class="px-5 py-3 font-medium">Criterio</th>
+              <th scope="col" class="px-5 py-3 font-medium">Freidora de aire (10 L)</th>
+              <th scope="col" class="px-5 py-3 font-medium">Horno convencional</th>
             </tr>
           </thead>
           <tbody class="divide-y divide-slate-200">
-
-            <tr class="hover:bg-slate-50">
-              <td class="px-5 py-4">
-                <a href="#cocina" class="font-semibold hover:text-accent-dark">Cosori Dual Blaze TwinFry</a>
-                <p class="text-slate-500">Freidora de aire</p>
-              </td>
-              <td class="px-5 py-4">Doble cesta, no hay que voltear los alimentos</td>
-              <td class="px-5 py-4">10 L · 2800 W</td>
-              <td class="px-5 py-4">
-                <span class="inline-flex items-center gap-1 text-accent-dark font-semibold" aria-label="Valoración 4.6 sobre 5">
-                  ★★★★★ <span class="text-slate-500 font-normal">4.6/5</span>
-                </span>
-              </td>
-              <td class="px-5 py-4 text-right">
-                <a href="https://link.amazon/B02HS3AiM" rel="nofollow noopener sponsored" target="_blank"
-                  class="inline-flex items-center rounded-md bg-accent px-4 py-2 text-xs font-semibold text-base-900 hover:bg-accent-dark transition-colors">
-                  Ver precio
-                </a>
-              </td>
-            </tr>
-
-            <tr class="hover:bg-slate-50">
-              <td class="px-5 py-4">
-                <a href="#limpieza" class="font-semibold hover:text-accent-dark">Roborock Q7 Max+</a>
-                <p class="text-slate-500">Robot aspirador y friegasuelos</p>
-              </td>
-              <td class="px-5 py-4">Autovaciado hasta 7 semanas sin mantenimiento</td>
-              <td class="px-5 py-4">4200 Pa · hasta 300 m² por carga</td>
-              <td class="px-5 py-4">
-                <span class="inline-flex items-center gap-1 text-accent-dark font-semibold" aria-label="Valoración 4.5 sobre 5">
-                  ★★★★★ <span class="text-slate-500 font-normal">4.5/5</span>
-                </span>
-              </td>
-              <td class="px-5 py-4 text-right">
-                <a href="https://link.amazon/B0fUCEh8K" rel="nofollow noopener sponsored" target="_blank"
-                  class="inline-flex items-center rounded-md bg-accent px-4 py-2 text-xs font-semibold text-base-900 hover:bg-accent-dark transition-colors">
-                  Ver precio
-                </a>
-              </td>
-            </tr>
-
-            <tr class="hover:bg-slate-50">
-              <td class="px-5 py-4">
-                <a href="#climatizacion" class="font-semibold hover:text-accent-dark">Levoit Core 300S</a>
-                <p class="text-slate-500">Purificador de aire</p>
-              </td>
-              <td class="px-5 py-4">Silencioso, 22 dB en modo noche</td>
-              <td class="px-5 py-4">23 W · hasta 50 m²</td>
-              <td class="px-5 py-4">
-                <span class="inline-flex items-center gap-1 text-accent-dark font-semibold" aria-label="Valoración 4.7 sobre 5">
-                  ★★★★★ <span class="text-slate-500 font-normal">4.7/5</span>
-                </span>
-              </td>
-              <td class="px-5 py-4 text-right">
-                <a href="https://link.amazon/B08XvWcrl" rel="nofollow noopener sponsored" target="_blank"
-                  class="inline-flex items-center rounded-md bg-accent px-4 py-2 text-xs font-semibold text-base-900 hover:bg-accent-dark transition-colors">
-                  Ver precio
-                </a>
-              </td>
-            </tr>
-
+            <tr><td class="px-5 py-4 font-medium">Precalentamiento</td><td class="px-5 py-4">No suele necesitarlo</td><td class="px-5 py-4">10-15 min a plena potencia</td></tr>
+            <tr><td class="px-5 py-4 font-medium">Tiempo medio de cocción</td><td class="px-5 py-4">15-22 min</td><td class="px-5 py-4">30-45 min</td></tr>
+            <tr><td class="px-5 py-4 font-medium">Consumo por uso (ración pequeña)</td><td class="px-5 py-4">≈ 0,25-0,35 kWh</td><td class="px-5 py-4">≈ 0,9-1,2 kWh</td></tr>
+            <tr><td class="px-5 py-4 font-medium">Coste aproximado por uso</td><td class="px-5 py-4">0,04 € – 0,05 €</td><td class="px-5 py-4">0,14 € – 0,18 €</td></tr>
+            <tr><td class="px-5 py-4 font-medium">Mejor para</td><td class="px-5 py-4">1-4 raciones, cocción rápida</td><td class="px-5 py-4">Bandejas grandes, varios pisos a la vez</td></tr>
           </tbody>
         </table>
       </div>
-    </section>
 
-    <!-- ======================= FICHAS DE PRODUCTO ======================= -->
-    <section class="max-w-6xl mx-auto px-5 py-14">
-      <h2 class="font-head text-3xl font-semibold mb-10">Análisis en detalle</h2>
-
-      <div class="grid gap-8 md:grid-cols-3">
-
-        <!-- Ficha 1: Freidora de aire -->
-        <article id="cocina" class="scroll-mt-20 border border-slate-200 rounded-xl p-6 flex flex-col bg-white">
-          <span class="inline-block w-fit rounded-full bg-amber-100 text-accent-dark text-xs font-semibold px-3 py-1 mb-4">
-            Mejor Elección Cocina
-          </span>
-
-          <!-- Contenedor de imagen responsivo. Ilustración vectorial propia (sin dependencias externas, carga instantánea). -->
-          <!-- Para usar la foto real del producto (con licencia de afiliado vía SiteStripe), sustituye este bloque por: <img src="URL-DE-TU-IMAGEN.jpg" alt="Cosori Dual Blaze TwinFry" class="w-full h-full object-contain" loading="lazy"> -->
-          <div class="aspect-video w-full rounded-lg mb-5 flex items-center justify-center bg-gradient-to-br from-amber-100 to-amber-50 border border-amber-200/60">
-            <svg class="h-20 w-20 text-accent-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.3">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M6 7v11a2 2 0 002 2h8a2 2 0 002-2V7M9 7V5a2 2 0 012-2h2a2 2 0 012 2v2M10 11v5M14 11v5" />
-            </svg>
-          </div>
-
-          <h3 class="font-head text-xl font-semibold">Cosori Dual Blaze TwinFry</h3>
-          <p class="mt-2 text-sm text-slate-600 leading-relaxed">
-            Freidora de aire de doble cesta con 10 litros de capacidad total y 2800W de potencia.
-            Su tecnología Dual Blaze calienta a la vez por arriba y por abajo, así que no hace falta
-            voltear los alimentos a mitad de cocción. Interior de acero resistente al calor y cestas
-            aptas para lavavajillas.
-          </p>
-
-          <div class="mt-5 text-sm">
-            <h4 class="font-semibold text-emerald-700 mb-2">Pros</h4>
-            <ul class="space-y-1.5 text-slate-600">
-              <li class="flex gap-2"><span class="text-emerald-600">✓</span> Dos cestas independientes: cocinas dos platos a la vez, a distinta temperatura</li>
-              <li class="flex gap-2"><span class="text-emerald-600">✓</span> Capacidad de 10 L, suficiente para familias numerosas</li>
-              <li class="flex gap-2"><span class="text-emerald-600">✓</span> Cestas desmontables y aptas para lavavajillas</li>
-            </ul>
-            <h4 class="font-semibold text-rose-700 mt-4 mb-2">Contra</h4>
-            <ul class="space-y-1.5 text-slate-600">
-              <li class="flex gap-2"><span class="text-rose-600">✕</span> Es voluminosa: necesita bastante espacio libre en la encimera</li>
-            </ul>
-          </div>
-
-          <a href="https://link.amazon/B02HS3AiM" rel="nofollow noopener sponsored" target="_blank"
-            class="mt-6 inline-flex items-center justify-center rounded-md bg-accent px-5 py-3 text-sm font-semibold text-base-900 hover:bg-accent-dark transition-colors">
-            Ver precio en Amazon
-          </a>
-        </article>
-
-        <!-- Ficha 2: Robot aspirador -->
-        <article id="limpieza" class="scroll-mt-20 border border-slate-200 rounded-xl p-6 flex flex-col bg-white">
-          <span class="inline-block w-fit rounded-full bg-amber-100 text-accent-dark text-xs font-semibold px-3 py-1 mb-4">
-            Mejor Relación Calidad/Precio
-          </span>
-
-          <!-- Para usar la foto real del producto, sustituye este bloque por: <img src="URL-DE-TU-IMAGEN.jpg" alt="Roborock Q7 Max+" class="w-full h-full object-contain" loading="lazy"> -->
-          <div class="aspect-video w-full rounded-lg mb-5 flex items-center justify-center bg-gradient-to-br from-slate-200 to-slate-100 border border-slate-300/60">
-            <svg class="h-20 w-20 text-slate-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.3">
-              <circle cx="12" cy="12" r="8" />
-              <circle cx="12" cy="12" r="2.5" />
-              <path stroke-linecap="round" d="M12 4v2M12 18v2M4 12h2M18 12h2" />
-            </svg>
-          </div>
-
-          <h3 class="font-head text-xl font-semibold">Roborock Q7 Max+</h3>
-          <p class="mt-2 text-sm text-slate-600 leading-relaxed">
-            Robot aspirador y friegasuelos con navegación LiDAR y 4200 Pa de potencia de succión,
-            capaz de cubrir hasta 300 m² con una sola carga de su batería de 5200 mAh. Incluye base
-            de autovaciado que retiene el polvo en una bolsa de hasta 7 semanas de uso.
-          </p>
-
-          <div class="mt-5 text-sm">
-            <h4 class="font-semibold text-emerald-700 mb-2">Pros</h4>
-            <ul class="space-y-1.5 text-slate-600">
-              <li class="flex gap-2"><span class="text-emerald-600">✓</span> Autovaciado: te olvidas de vaciar el depósito semanas seguidas</li>
-              <li class="flex gap-2"><span class="text-emerald-600">✓</span> Navegación LiDAR precisa, con mapeo de varias plantas</li>
-              <li class="flex gap-2"><span class="text-emerald-600">✓</span> Aspira y friega a la vez, con control por app y voz</li>
-            </ul>
-            <h4 class="font-semibold text-rose-700 mt-4 mb-2">Contra</h4>
-            <ul class="space-y-1.5 text-slate-600">
-              <li class="flex gap-2"><span class="text-rose-600">✕</span> El depósito de agua (350 ml) obliga a rellenar en casas grandes</li>
-            </ul>
-          </div>
-
-          <a href="https://link.amazon/B0fUCEh8K" rel="nofollow noopener sponsored" target="_blank"
-            class="mt-6 inline-flex items-center justify-center rounded-md bg-accent px-5 py-3 text-sm font-semibold text-base-900 hover:bg-accent-dark transition-colors">
-            Ver precio en Amazon
-          </a>
-        </article>
-
-        <!-- Ficha 3: Purificador de aire -->
-        <article id="climatizacion" class="scroll-mt-20 border border-slate-200 rounded-xl p-6 flex flex-col bg-white">
-          <span class="inline-block w-fit rounded-full bg-amber-100 text-accent-dark text-xs font-semibold px-3 py-1 mb-4">
-            Top Silencioso y Eficiente
-          </span>
-
-          <!-- Para usar la foto real del producto, sustituye este bloque por: <img src="URL-DE-TU-IMAGEN.jpg" alt="Levoit Core 300S" class="w-full h-full object-contain" loading="lazy"> -->
-          <div class="aspect-video w-full rounded-lg mb-5 flex items-center justify-center bg-gradient-to-br from-emerald-100 to-emerald-50 border border-emerald-200/60">
-            <svg class="h-20 w-20 text-emerald-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.3">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 8a3 3 0 116 0M4 12h11a2.5 2.5 0 010 5h-1M4 16h7a2 2 0 010 4H9" />
-            </svg>
-          </div>
-
-          <h3 class="font-head text-xl font-semibold">Levoit Core 300S</h3>
-          <p class="mt-2 text-sm text-slate-600 leading-relaxed">
-            Purificador de aire con filtro HEPA de 3 etapas (pre-filtro, HEPA y carbono activo) que
-            retiene hasta el 99,97% de las partículas de 0,3 µm. Pensado para habitaciones de hasta
-            50 m², con control por app VeSync y modo noche de bajo consumo.
-          </p>
-
-          <div class="mt-5 text-sm">
-            <h4 class="font-semibold text-emerald-700 mb-2">Pros</h4>
-            <ul class="space-y-1.5 text-slate-600">
-              <li class="flex gap-2"><span class="text-emerald-600">✓</span> Modo noche a solo 22-24 dB, prácticamente inaudible</li>
-              <li class="flex gap-2"><span class="text-emerald-600">✓</span> Consumo bajo: unos 23W en su nivel máximo</li>
-              <li class="flex gap-2"><span class="text-emerald-600">✓</span> Control por app, con sensor de calidad del aire integrado</li>
-            </ul>
-            <h4 class="font-semibold text-rose-700 mt-4 mb-2">Contra</h4>
-            <ul class="space-y-1.5 text-slate-600">
-              <li class="flex gap-2"><span class="text-rose-600">✕</span> El filtro HEPA es un consumible: hay que sustituirlo cada 6-8 meses</li>
-            </ul>
-          </div>
-
-          <a href="https://link.amazon/B08XvWcrl" rel="nofollow noopener sponsored" target="_blank"
-            class="mt-6 inline-flex items-center justify-center rounded-md bg-accent px-5 py-3 text-sm font-semibold text-base-900 hover:bg-accent-dark transition-colors">
-            Ver precio en Amazon
-          </a>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- ======================= FAQ ======================= -->
-    <section id="faq" class="max-w-6xl mx-auto px-5 py-14 scroll-mt-20">
-      <div class="max-w-2xl mb-8">
-        <h2 class="font-head text-3xl font-semibold">Preguntas frecuentes y consejos antes de comprar</h2>
-        <p class="mt-3 text-slate-600">Dudas habituales sobre freidoras de aire, robots aspiradores y consumo eléctrico en casa.</p>
-      </div>
-
-      <div class="max-w-3xl divide-y divide-slate-200 border-y border-slate-200">
-
-        <div class="py-2">
-          <button class="faq-toggle w-full flex items-center justify-between gap-4 py-4 text-left font-semibold" aria-expanded="false" aria-controls="faq-1">
-            ¿Una freidora de aire consume mucha luz?
-            <span class="faq-icon text-accent-dark text-xl leading-none">+</span>
-          </button>
-          <div id="faq-1" class="faq-panel hidden pb-4 text-sm text-slate-600 leading-relaxed">
-            Depende de la potencia y del tiempo de uso, pero suele consumir menos que un horno
-            convencional porque calienta un espacio mucho más pequeño y en menos tiempo. Fíjate en
-            los vatios (W) de la ficha técnica y en cuántos minutos sueles cocinar para hacerte una
-            idea real del gasto en tu caso.
-          </div>
-        </div>
-
-        <div class="py-2">
-          <button class="faq-toggle w-full flex items-center justify-between gap-4 py-4 text-left font-semibold" aria-expanded="false" aria-controls="faq-2">
-            ¿Necesito usar aceite en una freidora de aire?
-            <span class="faq-icon text-accent-dark text-xl leading-none">+</span>
-          </button>
-          <div id="faq-2" class="faq-panel hidden pb-4 text-sm text-slate-600 leading-relaxed">
-            No es imprescindible: el aparato cocina haciendo circular aire muy caliente alrededor
-            del alimento. Una cucharadita de aceite puede mejorar el dorado en algunos alimentos,
-            pero no es necesaria para que el electrodoméstico funcione ni para conseguir una textura
-            crujiente.
-          </div>
-        </div>
-
-        <div class="py-2">
-          <button class="faq-toggle w-full flex items-center justify-between gap-4 py-4 text-left font-semibold" aria-expanded="false" aria-controls="faq-3">
-            ¿Un robot aspirador limpia igual de bien que aspirar a mano?
-            <span class="faq-icon text-accent-dark text-xl leading-none">+</span>
-          </button>
-          <div id="faq-3" class="faq-panel hidden pb-4 text-sm text-slate-600 leading-relaxed">
-            Para el mantenimiento diario, sí es suficiente en la mayoría de los hogares: recoge
-            polvo, pelo de mascotas y migas en suelos duros y alfombras bajas. Para una limpieza a
-            fondo puntual (rincones muy concretos, zonas altas o textiles gruesos) sigue siendo útil
-            complementarlo de vez en cuando con una aspiradora de mano.
-          </div>
-        </div>
-
-        <div class="py-2">
-          <button class="faq-toggle w-full flex items-center justify-between gap-4 py-4 text-left font-semibold" aria-expanded="false" aria-controls="faq-4">
-            ¿Merece la pena la base de autovaciado de un robot aspirador?
-            <span class="faq-icon text-accent-dark text-xl leading-none">+</span>
-          </button>
-          <div id="faq-4" class="faq-panel hidden pb-4 text-sm text-slate-600 leading-relaxed">
-            Si tienes mascotas, alfombras o simplemente quieres olvidarte del mantenimiento durante
-            semanas, sí: la base vacía automáticamente el depósito del robot en una bolsa de mayor
-            capacidad. Si vives en un piso pequeño y no te importa vaciar el depósito cada pocos
-            días, puedes prescindir de ella y ahorrar en el precio.
-          </div>
-        </div>
-
-        <div class="py-2">
-          <button class="faq-toggle w-full flex items-center justify-between gap-4 py-4 text-left font-semibold" aria-expanded="false" aria-controls="faq-5">
-            ¿Cómo elegís los productos que recomendáis?
-            <span class="faq-icon text-accent-dark text-xl leading-none">+</span>
-          </button>
-          <div id="faq-5" class="faq-panel hidden pb-4 text-sm text-slate-600 leading-relaxed">
-            Comparamos fichas técnicas oficiales (potencia, capacidad, consumo, nivel de ruido) y
-            contrastamos opiniones de compradores reales. doccodex es un sitio independiente: no
-            recibimos pago de las marcas para aparecer en las comparativas.
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Sección "Hogar Inteligente" (ancla de navegación; iremos ampliando esta categoría con más análisis) -->
-    <section id="hogar-inteligente" class="max-w-6xl mx-auto px-5 pb-14 scroll-mt-20">
-      <div class="max-w-2xl border-t border-slate-200 pt-10">
-        <h2 class="font-head text-2xl font-semibold">Hogar Inteligente</h2>
-        <p class="mt-3 text-slate-600">
-          Próximamente ampliaremos esta categoría con enchufes, bombillas y asistentes conectados,
-          analizados con el mismo criterio: autonomía, consumo y facilidad de instalación real.
-        </p>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ======================= FOOTER ======================= -->
-  <footer class="border-t border-slate-200 bg-white">
-    <div class="max-w-6xl mx-auto px-5 py-12 grid gap-10 md:grid-cols-4 text-sm">
-
-      <div class="md:col-span-2">
-        <p class="font-head text-lg font-semibold">doccodex<span class="text-accent">.</span></p>
-        <p class="mt-3 text-slate-600 leading-relaxed max-w-sm">
-          Comparativas y guías de compra independientes sobre gadgets, electrodomésticos y
-          tecnología práctica para el hogar. Contenido editorial propio, basado en fichas técnicas
-          y pruebas de uso.
-        </p>
-        <p class="mt-4 text-slate-500">
-          Contacto y consultas legales:
-          <a href="mailto:falka22ta@gmail.com" class="text-accent-dark hover:underline">falka22ta@gmail.com</a>
-        </p>
-      </div>
-
-      <div>
-        <p class="font-semibold mb-3">Categorías</p>
-        <ul class="space-y-2 text-slate-600">
-          <li><a href="#cocina" class="hover:text-accent-dark">Cocina Práctica</a></li>
-          <li><a href="#limpieza" class="hover:text-accent-dark">Limpieza y Aspiración</a></li>
-          <li><a href="#climatizacion" class="hover:text-accent-dark">Climatización</a></li>
-          <li><a href="#hogar-inteligente" class="hover:text-accent-dark">Hogar Inteligente</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <p class="font-semibold mb-3">Legal</p>
-        <ul class="space-y-2 text-slate-600">
-          <li><a href="#aviso-legal" class="hover:text-accent-dark">Aviso Legal</a></li>
-          <li><a href="#privacidad" class="hover:text-accent-dark">Política de Privacidad</a></li>
-          <li><a href="#cookies" class="hover:text-accent-dark">Política de Cookies</a></li>
-          <li><a href="#terminos" class="hover:text-accent-dark">Términos de Servicio</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Cláusula de afiliación y descargo editorial -->
-    <div class="border-t border-slate-200">
-      <div class="max-w-6xl mx-auto px-5 py-6 text-xs text-slate-500 leading-relaxed space-y-2">
-        <p>
-          <strong>Aviso de afiliación:</strong> en calidad de Afiliado de Amazon, este sitio obtiene ingresos
-          por las compras adscritas que cumplen los requisitos aplicables. Esto no supone ningún coste
-          adicional para el comprador.
-        </p>
-        <p>
-          Descargo editorial: las opiniones publicadas en doccodex son propias y se basan en el análisis de
-          especificaciones públicas y pruebas de uso; los precios y la disponibilidad mostrados son
-          orientativos y pueden variar en la tienda de destino. Este sitio utiliza cookies propias y de
-          terceros, incluidas las de Google, con fines analíticos y de publicidad personalizada (Google
-          AdSense).
-        </p>
-      </div>
-    </div>
-
-    <!-- ================= CONTENIDO LEGAL (plantillas base) ================= -->
-    <!--
-      NOTA PARA EL DESARROLLADOR:
-      Los textos siguientes son plantillas genéricas de uso habitual para cumplir el requisito de
-      "contenido legal desde el primer día" y facilitar la revisión de AdSense. Sustituye los datos
-      entre corchetes [ ] por los reales del titular del sitio y, si es posible, haz revisar el
-      contenido final por un profesional legal antes de publicarlo.
-    -->
-    <div class="max-w-6xl mx-auto px-5 pb-12 space-y-3">
-
-      <details id="aviso-legal" class="scroll-mt-20 border border-slate-200 rounded-lg p-4">
-        <summary class="font-semibold cursor-pointer">Aviso Legal</summary>
-        <div class="mt-3 text-xs text-slate-600 leading-relaxed space-y-2">
-          <p>En cumplimiento de la normativa vigente, se informa de que el presente sitio web, 
-doccodex.com, es un portal divulgativo gestionado por el equipo editorial de doccodex.
-
-Para cualquier consulta, notificación, ejercicio de derechos de privacidad 
-o aclaración legal, los usuarios pueden ponerse en contacto directo a través de:
-Correo electrónico: falka22ta@gmail.com.</p>
-          <p>El acceso y uso de este sitio atribuye la condición de usuario e implica la aceptación de las
-            condiciones aquí recogidas. Todos los contenidos (textos, imágenes, marcas y logotipos propios)
-            están protegidos por derechos de propiedad intelectual; las marcas de terceros mencionadas
-            (Cosori, Roborock, Levoit y otras) pertenecen a sus respectivos titulares y se citan con fines
-            meramente descriptivos e informativos.</p>
-          <p>El titular no se responsabiliza de los daños derivados del uso indebido de los contenidos ni
-            del acceso a sitios enlazados no gestionados por doccodex.</p>
-        </div>
-      </details>
-
-      <details id="privacidad" class="scroll-mt-20 border border-slate-200 rounded-lg p-4">
-        <summary class="font-semibold cursor-pointer">Política de Privacidad</summary>
-        <div class="mt-3 text-xs text-slate-600 leading-relaxed space-y-2">
-          <p>El responsable del tratamiento de los datos es el equipo editorial de doccodex (contacto:
-            falka22ta@gmail.com). Los datos que puedas facilitarnos (por ejemplo, al escribir un correo)
-            se usan únicamente para atender tu consulta y no se ceden a terceros salvo obligación legal.</p>
-          <p>Este sitio puede utilizar servicios de terceros, como Google (Analytics y AdSense), que
-            procesan datos de navegación con fines analíticos y de publicidad personalizada, conforme a
-            sus propias políticas de privacidad.</p>
-          <p>Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación y
-            portabilidad enviando un correo a falka22ta@gmail.com, indicando el derecho que deseas
-            ejercer y adjuntando un documento que acredite tu identidad.</p>
-        </div>
-      </details>
-
-      <details id="cookies" class="scroll-mt-20 border border-slate-200 rounded-lg p-4">
-        <summary class="font-semibold cursor-pointer">Política de Cookies</summary>
-        <div class="mt-3 text-xs text-slate-600 leading-relaxed space-y-2">
-          <p>Este sitio utiliza cookies propias, necesarias para su correcto funcionamiento, y cookies de
-            terceros (por ejemplo, de Google) con fines de medición de audiencia y publicidad
-            personalizada a través de Google AdSense.</p>
-          <p>Puedes permitir, bloquear o eliminar las cookies instaladas en tu equipo mediante la
-            configuración de las opciones del navegador que utilices. Para más información sobre cómo
-            Google utiliza los datos de sitios que emplean sus servicios, puedes consultar la política de
-            privacidad de Google.</p>
-        </div>
-      </details>
-
-      <details id="terminos" class="scroll-mt-20 border border-slate-200 rounded-lg p-4">
-        <summary class="font-semibold cursor-pointer">Términos de Servicio</summary>
-        <div class="mt-3 text-xs text-slate-600 leading-relaxed space-y-2">
-          <p>El acceso a doccodex.com es gratuito y su uso implica la aceptación de estos términos. El
-            contenido tiene finalidad meramente informativa y no constituye asesoramiento profesional de
-            compra; la decisión final corresponde siempre al usuario.</p>
-          <p>Los enlaces a tiendas externas (incluido el Programa de Afiliados de Amazon) redirigen a
-            plataformas de terceros cuyas condiciones, precios, disponibilidad y política de devoluciones
-            son responsabilidad exclusiva de dichas plataformas.</p>
-          <p>El titular se reserva el derecho a modificar estos términos y el contenido del sitio en
-            cualquier momento sin previo aviso.</p>
-        </div>
-      </details>
-
-    </div>
-
-    <div class="border-t border-slate-200">
-      <p class="max-w-6xl mx-auto px-5 py-5 text-xs text-slate-400">
-        © 2026 doccodex. Todos los derechos reservados.
+      <p class="mt-4 text-slate-600 leading-relaxed">
+        La clave está en el precalentamiento: el horno gasta buena parte de su energía solo en
+        llegar a temperatura, un coste que pagas igual si horneas para una persona o para seis.
+        La freidora de aire, al no necesitar ese precalentamiento y trabajar en un volumen mucho
+        más pequeño, calienta el aire mucho más rápido. Por eso modelos de
+        <a href="#freidora-doble-cesta" class="text-accent-dark font-semibold hover:underline">doble cesta</a>
+        se han vuelto tan populares: replican la capacidad de "dos bandejas de horno" sin pagar
+        el coste energético de precalentar un horno entero.
       </p>
-    </div>
-  </footer>
+    </article>
 
-  <!-- ======================= JS VANILLA MÍNIMO ======================= -->
-  <script>
-    // Menú móvil
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const iconOpen = document.getElementById('menu-icon-open');
-    const iconClose = document.getElementById('menu-icon-close');
+    <hr class="border-slate-200">
 
-    menuBtn.addEventListener('click', () => {
-      const isOpen = mobileMenu.classList.toggle('hidden') === false;
-      menuBtn.setAttribute('aria-expanded', String(isOpen));
-      iconOpen.classList.toggle('hidden', isOpen);
-      iconClose.classList.toggle('hidden', !isOpen);
-    });
+    <!-- GUÍA 3 -->
+    <article id="mantenimiento-electrodomesticos" class="scroll-mt-20">
+      <h2 class="font-head text-2xl md:text-3xl font-semibold">Trucos de mantenimiento para alargar la vida de tus aparatos</h2>
+      <p class="mt-4 text-slate-600 leading-relaxed">
+        Un electrodoméstico mal mantenido no solo dura menos: también consume más, porque el
+        motor o la resistencia tienen que esforzarse más para compensar la suciedad o el
+        desgaste. Estos hábitos, de menos de cinco minutos, marcan la diferencia:
+      </p>
+      <ul class="mt-4 space-y-3 text-slate-600">
+        <li class="flex gap-3"><span class="text-accent-dark font-semibold">•</span> <strong>Freidoras de aire:</strong> limpia la resistencia superior y la cesta después de cada uso graso; la grasa acumulada reduce la circulación de aire y alarga los tiempos de cocción, disparando el consumo.</li>
+        <li class="flex gap-3"><span class="text-accent-dark font-semibold">•</span> <strong>Robots aspiradores:</strong> vacía y limpia el cepillo principal cada semana, aunque tengas base de autovaciado; el pelo enredado fuerza el motor y acorta la vida de la batería.</li>
+        <li class="flex gap-3"><span class="text-accent-dark font-semibold">•</span> <strong>Purificadores de aire:</strong> revisa el pre-filtro lavable cada mes; un pre-filtro saturado hace que el ventilador trabaje a mayor velocidad de forma constante para compensar, subiendo el consumo real por encima de lo esperado.</li>
+        <li class="flex gap-3"><span class="text-accent-dark font-semibold">•</span> <strong>Deshumidificadores:</strong> seca bien el depósito entre usos para evitar moho interno, que reduce la eficiencia de extracción con el tiempo.</li>
+        <li class="flex gap-3"><span class="text-accent-dark font-semibold">•</span> <strong>Gadgets de limpieza a batería</strong> (como los cepillos eléctricos extensibles): no los dejes cargando permanentemente conectados; las baterías de litio duran más con ciclos de carga completos ocasionales en vez de mantenerlas siempre al 100%.</li>
+      </ul>
+    </article>
 
-    // Cierra el menú móvil al elegir una categoría
-    mobileMenu.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-        menuBtn.setAttribute('aria-expanded', 'false');
-        iconOpen.classList.remove('hidden');
-        iconClose.classList.add('hidden');
-      });
-    });
+    <hr class="border-slate-200">
 
-    // Acordeón de FAQ
-    document.querySelectorAll('.faq-toggle').forEach((button) => {
-      button.addEventListener('click', () => {
-        const panel = document.getElementById(button.getAttribute('aria-controls'));
-        const isOpen = button.getAttribute('aria-expanded') === 'true';
-        button.setAttribute('aria-expanded', String(!isOpen));
-        panel.classList.toggle('hidden', isOpen);
-      });
-    });
+    <!-- GUÍA 4 -->
+    <article id="evitar-desperdicio-comida" class="scroll-mt-20">
+      <h2 class="font-head text-2xl md:text-3xl font-semibold">Métodos para evitar el desperdicio de comida con gadgets de conservación</h2>
+      <p class="mt-4 text-slate-600 leading-relaxed">
+        El desperdicio de alimentos es, en la práctica, dinero directo a la basura. Una familia
+        media tira al año comida por valor de varios cientos de euros, y buena parte se debe a
+        errores de conservación fáciles de evitar con gadgets sencillos y baratos:
+      </p>
+      <ul class="mt-4 space-y-3 text-slate-600">
+        <li class="flex gap-3"><span class="text-accent-dark font-semibold">•</span> Cierra bien bolsas de snacks, cereales y congelados con un
+          <a href="#sellador-termico-portatil" class="text-accent-dark font-semibold hover:underline">sellador térmico portátil</a>
+          en lugar de pinzas normales: el sellado hermético evita que el producto coja humedad o pierda textura antes de tiempo.</li>
+        <li class="flex gap-3"><span class="text-accent-dark font-semibold">•</span> Organiza las especias y productos de despensa con un
+          <a href="#organizador-magnetico-especias" class="text-accent-dark font-semibold hover:underline">organizador magnético</a>
+          visible: lo que no se ve, se olvida, y lo que se olvida, caduca sin usarse.</li>
+        <li class="flex gap-3"><span class="text-accent-dark font-semibold">•</span> Cocina raciones ajustadas y rápidas con una
+          <a href="#freidora-doble-cesta" class="text-accent-dark font-semibold hover:underline">freidora de aire de doble cesta</a>: al no necesitar precalentamiento, es más fácil cocinar solo lo que vas a comer en lugar de "aprovechar" el horno ya encendido con más cantidad de la necesaria.</li>
+        <li class="flex gap-3"><span class="text-accent-dark font-semibold">•</span> Usa un deshumidificador compacto en despensas o baños sin ventilación: la humedad ambiental acelera el enmohecimiento de pan, frutos secos y legumbres almacenadas.</li>
+      </ul>
+      <p class="mt-4 text-slate-600 leading-relaxed">
+        Ninguno de estos gadgets cuesta más de 25 €, pero entre los cuatro pueden evitarte tirar
+        varios kilos de comida al mes, lo que en la mayoría de casos amortiza la compra en menos
+        de un mes de uso normal.
+      </p>
+    </article>
 
-    // Si se llega por enlace directo a una sección legal, abre el <details> correspondiente
-    function openLegalFromHash() {
-      const target = document.querySelector(window.location.hash);
-      if (target && target.tagName === 'DETAILS') {
-        target.open = true;
-      }
-    }
-    window.addEventListener('hashchange', openLegalFromHash);
-    openLegalFromHash();
-  </script>
+  </section>
+
+</section>
+
+</main>
+
+<footer class="border-t border-slate-200 py-10">
+  <div class="max-w-6xl mx-auto px-5 text-sm text-slate-500 flex flex-col md:flex-row justify-between gap-4">
+    <p>© 2026 doccodex. Contenido con fines informativos; los enlaces de productos son de afiliado.</p>
+    <p>Este sitio participa en programas de afiliación de Amazon y TikTok Shop.</p>
+  </div>
+</footer>
+
+<script>
+var a={tiktok:{url:"https://www.tiktok.com/@classystake?_r=1&_t=ZG-9A5GtBh0FzE",ctaLabel:"Adquiere este producto en TikTok Shop",rel:"nofollow sponsored noopener",target:"_blank"},amazon:{url:"https://link.amazon/B02HS3AiM",ctaLabel:"Ver precio y oferta en Amazon",rel:"nofollow sponsored noopener",target:"_blank"}};function r(){document.querySelectorAll("[data-affiliate]").forEach(t=>{let n=t.dataset.affiliate;if(!n||!a[n])return;let o=a[n];t.setAttribute("href",o.url),t.setAttribute("target",o.target),t.setAttribute("rel",o.rel),t.textContent?.trim()||(t.textContent=o.ctaLabel)})}function l(){let e=document.getElementById("menu-btn"),t=document.getElementById("mobile-menu"),n=document.getElementById("menu-icon-open"),o=document.getElementById("menu-icon-close");!e||!t||e.addEventListener("click",()=>{let i=t.classList.toggle("hidden")===!1;e.setAttribute("aria-expanded",String(i)),n?.classList.toggle("hidden",i),o?.classList.toggle("hidden",!i)})}function s(){document.querySelectorAll(".faq-toggle").forEach(e=>{e.addEventListener("click",()=>{let t=e.getAttribute("aria-expanded")==="true";e.setAttribute("aria-expanded",String(!t)),document.getElementById(e.getAttribute("aria-controls")||"")?.classList.toggle("hidden",t)})})}document.addEventListener("DOMContentLoaded",()=>{r(),l(),s()});
+
+</script>
 
 </body>
 </html>
