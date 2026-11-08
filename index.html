@@ -3,20 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>DocCodex · Noticias y análisis financiero</title>
+<title>DocCodex · Hábitos sanos y productos ganadores para emprender</title>
 <script src="https://cdn.tailwindcss.com/3.4.17"></script>
 <style>
 :root{color-scheme:light dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
---bg:#f4f6f9;--card:#fff;--ink:#0f1b2d;--mut:#5b6b80;--line:#dde3ec;--brand:#0b3d91;--acc:#e8a317;--up:#0a8f4e;--dn:#d33a3a;--bar:#0f1b2d}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1220;--card:#131d30;--ink:#e8edf5;--mut:#97a6bb;--line:#24324a;--brand:#6ea1ff;--acc:#f0b429;--up:#35c27a;--dn:#ff6b6b;--bar:#070c16}}
-:root[data-theme="dark"]{--bg:#0b1220;--card:#131d30;--ink:#e8edf5;--mut:#97a6bb;--line:#24324a;--brand:#6ea1ff;--acc:#f0b429;--up:#35c27a;--dn:#ff6b6b;--bar:#070c16}
+--bg:#f4f6f9;--card:#fff;--ink:#0f1b2d;--mut:#5b6b80;--line:#dde3ec;--brand:#0b3d91;--acc:#e8a317;--hot:#d33a3a;--bar:#0f1b2d}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1220;--card:#131d30;--ink:#e8edf5;--mut:#97a6bb;--line:#24324a;--brand:#6ea1ff;--acc:#f0b429;--hot:#ff6b6b;--bar:#070c16}}
+:root[data-theme="dark"]{--bg:#0b1220;--card:#131d30;--ink:#e8edf5;--mut:#97a6bb;--line:#24324a;--brand:#6ea1ff;--acc:#f0b429;--hot:#ff6b6b;--bar:#070c16}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 body{background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 .card{background:var(--card);border:1px solid var(--line);border-radius:6px}
-.mut{color:var(--mut)}.brand{color:var(--brand)}.up{color:var(--up)}.dn{color:var(--dn)}
+.mut{color:var(--mut)}.brand{color:var(--brand)}
 .tag{font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--brand)}
-@keyframes mq{to{transform:translateX(-50%)}}
-.track{display:flex;width:max-content;animation:mq 45s linear infinite}.track:hover{animation-play-state:paused}
 a,button{cursor:pointer}a{text-decoration:none}.lk:hover .h{text-decoration:underline}
 nav button.on{border-color:var(--brand);color:var(--brand)}
 </style>
@@ -25,20 +23,16 @@ nav button.on{border-color:var(--brand);color:var(--brand)}
 
 <div style="background:var(--bar)" class="text-xs text-white/80">
   <div class="max-w-6xl mx-auto px-4 py-2 flex items-center justify-between gap-3">
-    <a href="https://t.me/doccodex" target="_blank" rel="noopener" class="font-semibold">✈ Telegram: t.me/doccodex</a>
-    <span>Actualizado: 28 oct 2026</span>
+    <a href="https://t.me/classymarkt" target="_blank" rel="noopener" class="font-semibold">✈ Telegram: t.me/classymarkt</a>
+    <span>Actualizado: 8 nov 2026</span>
   </div>
-</div>
-
-<div style="background:var(--card);border-bottom:1px solid var(--line)" class="overflow-hidden text-sm" aria-label="Cierres del 27 de octubre">
-  <div class="track py-2" id="tk"></div>
 </div>
 
 <header style="background:var(--card);border-bottom:1px solid var(--line)">
   <div class="max-w-6xl mx-auto px-4 pt-4">
     <div class="flex flex-wrap items-center justify-between gap-3">
-      <a href="#" onclick="go('noticias');return false" class="text-3xl font-extrabold tracking-tight">Doc<span class="brand">Codex</span><span class="block text-xs font-normal mut tracking-normal">Noticias y análisis financiero en tiempo real</span></a>
-      <input id="q" type="search" placeholder="Buscar noticias, índices, bancos…" aria-label="Buscar" class="w-full sm:w-80 rounded px-3 py-2 text-sm outline-none" style="background:var(--bg);border:1px solid var(--line);color:var(--ink)">
+      <a href="#" onclick="go('inicio');return false" class="text-3xl font-extrabold tracking-tight">Doc<span class="brand">Codex</span><span class="block text-xs font-normal mut tracking-normal">Hábitos sanos y productos ganadores para emprender</span></a>
+      <input id="q" type="search" placeholder="Buscar sueño, rutina, productos…" aria-label="Buscar" class="w-full sm:w-80 rounded px-3 py-2 text-sm outline-none" style="background:var(--bg);border:1px solid var(--line);color:var(--ink)">
     </div>
     <nav class="mt-3 -mx-4 px-4 overflow-x-auto" aria-label="Principal">
       <div class="flex gap-5 text-sm font-semibold whitespace-nowrap" id="nav"></div>
@@ -50,18 +44,22 @@ nav button.on{border-color:var(--brand);color:var(--brand)}
   <div class="min-w-0" id="main"></div>
   <aside class="space-y-6">
     <section class="card p-4">
-      <h2 class="font-bold mb-1">Mercados · cierre 27 oct</h2>
-      <p class="text-[11px] mut mb-2">Fuentes: cierres reportados por prensa financiera.</p>
-      <table class="w-full text-sm" id="mk"></table>
+      <h2 class="font-bold mb-2">Lo más leído</h2>
+      <ul class="text-sm space-y-2" id="pop"></ul>
     </section>
     <section class="card p-4">
-      <h2 class="font-bold mb-3">Agenda de la semana</h2>
-      <ul class="text-sm space-y-3" id="cal"></ul>
+      <h2 class="font-bold mb-2">Cuatro hábitos para hoy</h2>
+      <ol class="text-sm space-y-2 list-decimal pl-5 mut">
+        <li>Bebe un vaso de agua antes del móvil.</li>
+        <li>Camina 10 minutos, aunque sea por casa.</li>
+        <li>Haz primero la tarea que más pesa.</li>
+        <li>Ponle hora de cierre a tu jornada.</li>
+      </ol>
     </section>
     <section class="card p-4 text-center">
       <h2 class="font-bold">Sigue DocCodex en Telegram</h2>
-      <p class="text-sm mut my-2">Última hora y resúmenes de mercado en nuestro canal.</p>
-      <a href="https://t.me/doccodex" target="_blank" rel="noopener" class="inline-block rounded px-4 py-2 font-semibold" style="background:var(--acc);color:#111">Unirme al canal</a>
+      <p class="text-sm mut my-2">Ideas de productos y hábitos prácticos, directo a tu móvil.</p>
+      <a href="https://t.me/classymarkt" target="_blank" rel="noopener" class="inline-block rounded px-4 py-2 font-semibold" style="background:var(--acc);color:#111">Unirme al canal</a>
     </section>
   </aside>
 </main>
@@ -69,78 +67,70 @@ nav button.on{border-color:var(--brand);color:var(--brand)}
 <footer style="background:var(--bar)" class="text-white/70 text-xs">
   <div class="max-w-6xl mx-auto px-4 py-6 space-y-2">
     <b class="text-white text-base">DocCodex</b>
-    <p>Aviso de riesgo: los contenidos son informativos y no constituyen asesoramiento financiero ni recomendación de inversión. Los datos proceden de cierres publicados por medios financieros y pueden diferir de las cifras oficiales.</p>
-    <p>© 2026 DocCodex · <a href="https://t.me/doccodex" target="_blank" rel="noopener" class="underline">t.me/doccodex</a></p>
+    <p>Aviso: los contenidos son informativos y no sustituyen el consejo de un profesional de la salud. Tampoco garantizan ingresos; prueba cada idea con tus propios datos y consulta la normativa fiscal y de consumo de tu país.</p>
+    <p>© 2026 DocCodex · <a href="https://t.me/classymarkt" target="_blank" rel="noopener" class="underline">t.me/classymarkt</a></p>
   </div>
 </footer>
 
 <script>
-var M=[["S&P 500","7.722,60",0.60],["Nasdaq","26.477,81",1.18],["Dow Jones","52.377,57",0.03],["Ibex 35","19.160,60",0.67],["Oro","4.073 $",0.86],["Plata","54,45 $",0.2],["Bitcoin","80.676 $",0.83]];
-var EXTRA=[["Bono EE. UU. 10 años","4,99 %"],["Euríbor 12M (mediados oct.)","≈ 3,2 %"]];
-var CAT={bolsa:"Bolsa",bancos:"Bancos",normativa:"Normativa",cripto:"Crypto",guias:"Guías"};
-var NAV=[["noticias","Noticias"],["bolsa","Análisis de Bolsa"],["bancos","Acuerdos y Bancos"],["normativa","Regulaciones"],["calendario","Calendario Económico"],["cripto","Cripto"],["guias","Guías"]];
-var CAL=[["Mié 28 oct · 18:00 GMT","Fed: decisión de tipos","Cierra la reunión del 27 y 28 de octubre; el mercado descuenta que mantenga los tipos."],["Esta semana","Resultados de las grandes tecnológicas","Los balances trimestrales de Big Tech marcan el tono del sector de IA y chips."],["26–30 oct","Desfase horario EE. UU.–Europa","Wall Street abre a las 14:30 hora peninsular hasta el viernes; desde el lunes 2 de noviembre vuelve a las 15:30."]];
+var CAT={salud:"Salud y energía",habitos:"Hábitos",productos:"Productos ganadores",empezar:"Empezar a vender",casa:"Dinero desde casa"};
+var NAV=[["inicio","Inicio"],["salud","Salud y energía"],["habitos","Hábitos"],["productos","Productos ganadores"],["empezar","Empezar a vender"],["casa","Dinero desde casa"]];
 var A=[
-{id:1,c:"bolsa",b:1,d:"27 oct 2026 · 21:00 GMT",t:"Wall Street prolonga su racha alcista impulsada por los chips en la víspera de la Fed",
-s:"El S&P 500 sube un 0,60 % y el Nasdaq un 1,18 % mientras el petróleo retrocede y los inversores esperan la decisión de la Reserva Federal.",
-l:["S&P 500: 7.722,60 puntos (+0,60 %); Nasdaq: 26.477,81 (+1,18 %); Dow Jones: 52.377,57 (+0,03 %).","Boeing se hunde cerca de un 10,7 % y frena al Dow Jones.","El índice de semiconductores de Filadelfia acumula un alza superior al 60 % en el año."],
-p:["Wall Street cerró el martes con avances liderados por el sector tecnológico. La prensa financiera atribuye el impulso a cuatro factores: el renovado apetito por la inteligencia artificial tras la solicitud de salida a bolsa de Anthropic, la nueva baja del petróleo por gestiones diplomáticas en Oriente Medio, la expectativa de que la Fed mantenga los tipos y una temporada de resultados que premia a las tecnológicas.","El comportamiento fue desigual: nueve de los once sectores del S&P 500 terminaron en positivo el lunes, y el martes el Dow Jones quedó prácticamente plano por el castigo a Boeing. El índice de volatilidad VIX cerró el lunes en 18,39 puntos.","Los inversores esperan ahora el comunicado de la Reserva Federal. Cualquier matiz sobre el ritmo futuro de los tipos puede mover con fuerza a las bolsas, al dólar y a los bonos."],tg:"s&p 500 nasdaq dow jones wall street chips fed boeing ia"},
-{id:2,c:"bolsa",d:"27 oct 2026 · 17:30 GMT",t:"El Ibex 35 cierra en 19.160,60 puntos y recupera terreno tras una semana de altibajos",
-s:"El selectivo español sube un 0,67 % en la sesión del martes, pero sigue lejos de su máximo anual de 20.356,50 puntos.",
-l:["Cierre: 19.160,60 puntos, +127,30 puntos (+0,67 %).","Mínimo reciente: 18.913,50 puntos el 22 de octubre.","El lunes llegó a caer casi un 1 % en la apertura antes de cerrar con un avance del 0,23 %."],
-p:["El Ibex 35 encadena dos sesiones al alza tras tocar los 18.913,50 puntos el jueves 22. Aun así, cotiza por debajo del máximo de las últimas 52 semanas, situado en 20.356,50 puntos, y los 19.000 puntos siguen siendo el soporte que vigilan los analistas.","Mediado octubre, el índice acumulaba una revalorización superior al 10 % en el año. En la sesión del lunes 26, el selectivo sufrió en la apertura por el castigo a valores con negocio en Brasil, aunque logró darse la vuelta.","Este miércoles, la referencia será la decisión de la Fed, que puede condicionar la segunda mitad de la sesión europea y la apertura de Wall Street."],tg:"ibex 35 bolsa española soportes"},
-{id:3,c:"bancos",d:"26 oct 2026 · 17:30 GMT",t:"La reelección de Lula castiga a Telefónica, Santander y Mapfre en el Ibex 35",
-s:"Las compañías españolas con fuerte exposición a Brasil abrieron con caídas el lunes, aunque el índice recuperó los 19.000 puntos al cierre.",
-l:["Telefónica, Santander y Mapfre lideraron las caídas de la apertura.","El Ibex 35 cerró en 19.033,30 puntos (+0,23 %), a la cola de las bolsas europeas.","Londres, París, Fráncfort y Milán subieron entre un 0,7 % y un 1,3 %."],
-p:["El resultado electoral en Brasil volvió a poner el foco sobre las empresas españolas con negocio en ese país. Telefónica, Santander y Mapfre fueron las más penalizadas en las primeras operaciones del lunes, lo que llevó al Ibex 35 a caer casi un 1 %.","A lo largo de la sesión el selectivo moderó las pérdidas y cerró con un ligero avance, aunque quedó rezagado frente a otras plazas europeas, que registraron subidas más amplias.","Para los inversores, el episodio recuerda el peso de los mercados emergentes en los resultados de la banca y las aseguradoras españolas."],tg:"brasil lula telefonica santander mapfre banca"},
-{id:4,c:"bancos",d:"19 oct 2026 · 09:00 GMT",t:"Euríbor: se modera en torno al 3,2 % y la media de octubre queda por debajo de la de septiembre",
-s:"La media provisional de octubre se sitúa en el 3,216 %, frente al 3,247 % de septiembre, el dato que se aplica a las revisiones hipotecarias de este mes.",
-l:["Euríbor diario a 12 meses: 3,215 % (19 de octubre).","Media provisional de octubre: 3,216 %; media oficial de septiembre: 3,247 %.","La inflación de la eurozona subió al 3,8 % en septiembre, su nivel más alto en tres años."],
-p:["El euríbor a 12 meses se mueve en una franja estrecha cerca del 3,2 %. Para los hipotecados a tipo variable, la revisión de octubre usa la media de septiembre (3,247 %), de modo que la ligera moderación de este mes se notará en las próximas revisiones.","El freno a las bajadas depende de la inflación. El repunte del IPC de la eurozona al 3,8 % en septiembre obliga al BCE a replantearse el ritmo de recortes de tipos, y cada intervención de sus miembros mueve el euríbor y el euro.","Consejo práctico: si tu hipoteca se revisa pronto, consulta en tu contrato qué índice y qué fecha de referencia se aplican."],tg:"euribor hipotecas bce inflacion tipos"},
-{id:5,c:"normativa",d:"19 oct 2026 · 10:41 GMT",t:"La CNMV alerta contra tres entidades sin autorización para prestar servicios cripto",
-s:"El supervisor señala a Global Rift, Diamond Capital y Wexford Advisory por carecer de la autorización exigida por el reglamento europeo MiCA.",
-l:["Entidades señaladas: Global Rift, Diamond Capital y Wexford Advisory.","El periodo transitorio de MiCA en España terminó el 30 de junio de 2026.","Solo pueden operar los proveedores autorizados."],
-p:["La Comisión Nacional del Mercado de Valores ha publicado nuevas alertas sobre entidades que ofrecen servicios con criptoactivos sin contar con autorización. Estas advertencias forman parte de su labor de protección al inversor.","Desde el fin del periodo transitorio del Reglamento MiCA, el 30 de junio de 2026, solo los proveedores que han obtenido autorización pueden operar en España, por lo que cualquier plataforma que no la tenga actúa fuera del marco legal.","Antes de invertir, conviene comprobar en los registros de la CNMV que la entidad figura como autorizada y revisar su listado de advertencias."],tg:"cnmv mica cripto regulacion alertas"},
-{id:6,c:"cripto",d:"27 oct 2026 · 21:30 GMT",t:"Bitcoin recupera los 80.000 dólares y el oro rebota hasta los 4.073 dólares",
-s:"Los activos alternativos se recuperan tras la peor semana desde la primavera para la renta variable global.",
-l:["Bitcoin: 80.676 $ (+0,83 %) tras perder los 80.000 $ durante la sesión europea.","Oro: 4.073 $ (+0,86 %); plata: 54,45 $ (+0,2 %).","Los ETF de bitcoin al contado vuelven a registrar entradas tras varios días de salidas."],
-p:["Bitcoin cayó por debajo de los 80.000 dólares por la mañana, pero recuperó ese nivel en la segunda mitad de la sesión estadounidense. Los ETF de bitcoin al contado volvieron a captar flujos tras varias jornadas de salidas.","El oro también rebotó después de perder los 4.000 dólares por la mañana. Ambos activos se mueven pendientes del tono de la Fed y de la evolución del dólar y de los rendimientos de los bonos, con el Treasury a diez años en torno al 4,99 %.","El MSCI World avanzó un 0,51 % y encadenó su segunda subida seguida."],tg:"bitcoin btc oro plata etf cripto"},
-{id:7,c:"guias",d:"28 oct 2026 · 08:00 GMT",t:"Guía: cómo leer la decisión de la Fed y por qué mueve al Ibex 35",
-s:"Qué mirar en el comunicado, en las proyecciones y en la rueda de prensa, y cómo se transmite el mensaje a bolsas, bonos y divisas.",
-l:["Primero, la decisión: tipos sin cambios, subida o bajada.","Después, el comunicado: cambios de redacción respecto a la reunión anterior.","Por último, la rueda de prensa: pistas sobre las próximas reuniones."],
-p:["La Reserva Federal fija el precio del dinero en EE. UU., y eso condiciona el de todo el mundo. Un tipo más alto encarece la financiación y suele penalizar a las bolsas y a las empresas más endeudadas; uno más bajo suele tener el efecto contrario.","El mercado no reacciona solo a la decisión, que casi siempre está descontada, sino a las sorpresas: el tono del comunicado y las pistas sobre el futuro. Por eso conviene fijarse en qué palabras cambian respecto a la reunión anterior.","El Ibex 35 se contagia por tres vías: el apetito global por el riesgo, la evolución del dólar frente al euro y las expectativas sobre los tipos del BCE, que afectan sobre todo a bancos e inmobiliarias."],tg:"fed tipos de interes guia reserva federal ibex"},
-{id:8,c:"guias",d:"20 oct 2026 · 09:00 GMT",t:"Guía: qué es MiCA y cómo comprobar si una plataforma cripto está autorizada",
-s:"Tres comprobaciones sencillas antes de depositar dinero en un proveedor de criptoactivos.",
-l:["MiCA es el reglamento europeo de mercados de criptoactivos.","Consulta el registro de la CNMV y sus alertas.","Desconfía de rentabilidades garantizadas o presiones para invertir rápido."],
-p:["MiCA (Markets in Crypto-Assets) establece reglas comunes en la Unión Europea para quienes emiten criptoactivos o prestan servicios con ellos. En España, el periodo transitorio terminó el 30 de junio de 2026.","Antes de operar, comprueba que el proveedor figura como autorizado en los registros de la CNMV, revisa si aparece en su listado de advertencias y verifica que su web identifique con claridad a la empresa y su domicilio.","Las promesas de rentabilidad garantizada, la urgencia y la insistencia en transferir fondos a cuentas poco claras son señales de alarma habituales."],tg:"mica cripto guia cnmv plataformas autorizada"}
+{id:1,c:"salud",b:1,d:"8 nov 2026",t:"Dormir bien también es trabajar: cómo cuidar tu sueño cuando emprendes",
+s:"Cuando tienes un proyecto en marcha es tentador recortar horas de cama. Suele salir caro: peor humor, peores decisiones.",
+l:["Fija una hora de levantarte y respétala también el fin de semana.","Deja el móvil fuera de la cama o al menos en modo no molestar.","Evita cafeína a partir de media tarde.","Anota lo pendiente antes de dormir para vaciar la cabeza."],
+p:["Si vendes online, lo más probable es que tu cabeza no se apague nunca: pedidos, mensajes, anuncios. Una pequeña rutina de cierre ayuda mucho. Apunta en un papel tres cosas para mañana, cierra el portátil y haz algo tranquilo durante veinte minutos.","La luz importa. Por la noche conviene bajar la intensidad de las luces de casa y reducir pantallas un rato antes de acostarte. Un buen antifaz o unas cortinas opacas son compras baratas que muchas personas notan enseguida.","Si llevas semanas durmiendo mal sin motivo claro, o te cuesta mucho funcionar de día, consulta con tu médico. Aquí damos hábitos generales, no diagnósticos."],tg:"sueno dormir descanso rutina noche emprendedores energia"},
+{id:2,c:"habitos",d:"7 nov 2026",t:"Una rutina de mañana de 30 minutos que sí se puede mantener",
+s:"Nada de levantarse a las cinco ni de rituales imposibles. Esta es una versión realista para quien también tiene que vivir.",
+l:["5 minutos: agua y luz natural (ventana o balcón).","10 minutos: moverte un poco, caminar o estirar.","5 minutos: mirar qué tres tareas importan hoy.","10 minutos: desayuno tranquilo, sin pantallas."],
+p:["La clave de una rutina es que sea tan fácil que no tengas excusa. Empieza con una sola cosa durante una semana, por ejemplo el vaso de agua y la caminata, y añade lo siguiente cuando ya no te cueste.","Elegir tres tareas, y no diez, evita esa sensación de estar siempre atrasado. Si terminas esas tres, el día ya fue productivo. Lo que sobre es un extra.","Habrá días que falle. No pasa nada: vuelve a empezar al día siguiente sin castigarte."],tg:"rutina manana habitos productividad desayuno agua caminar"},
+{id:3,c:"salud",d:"6 nov 2026",t:"Trabajar desde casa sin quedarte hecho polvo: espalda, ojos y cabeza",
+s:"Pasar ocho horas en el sofá con el portátil pasa factura. Unos cambios pequeños marcan la diferencia.",
+l:["Eleva la pantalla a la altura de los ojos.","Cada hora, levántate un par de minutos.","Cada 20 minutos, mira un punto lejano unos segundos.","Come lejos del escritorio, aunque sea cinco minutos."],
+p:["No necesitas montar una oficina de lujo. Con un soporte para el portátil, un teclado aparte y una silla que te sostenga la zona lumbar ya mejoras bastante. Si no puedes comprarlo todo, empieza por la altura de la pantalla.","Las pausas cortas funcionan mejor que una pausa larga a las tantas. Pon una alarma suave, estírate, bebe agua y vuelve. También ayuda tener un sitio de trabajo distinto al de descanso.","Si notas dolor persistente, hormigueo o molestias que no se van, pide cita con un profesional sanitario."],tg:"teletrabajo espalda ergonomia pausas ojos silla soporte portatil"},
+{id:4,c:"habitos",d:"5 nov 2026",t:"Cómo organizar la semana si emprendes y además tienes otro trabajo",
+s:"Poco tiempo y mucha energía mal repartida. Este método simple te ayuda a avanzar sin quemarte.",
+l:["Reserva 3 bloques fijos de 90 minutos por semana para tu negocio.","Pon el bloque cuando mejor rindes, no cuando sobre tiempo.","Haz una lista corta el domingo por la noche.","Deja un día completo sin tocar el proyecto."],
+p:["Mejor poco y constante que mucho y esporádico. Tres bloques semanales bien protegidos suelen dar más resultados que intentar trabajar un poco cada noche agotado.","Agrupa tareas parecidas: un día para publicar y responder mensajes, otro para revisar pedidos y proveedores, otro para crear contenido. Cambiar de tarea constantemente cansa más de lo que parece.","El descanso es parte del plan. Si todo tu tiempo libre se va en el negocio, tarde o temprano lo dejarás."],tg:"organizar semana tiempo bloques emprender otro trabajo rutina"},
+{id:5,c:"productos",d:"4 nov 2026",t:"5 productos ganadores con un punto en común: ayudan a cuidarse",
+s:"Los productos de bienestar y comodidad llevan años vendiendo. Esta es una selección con sentido para empezar.",
+l:["Botellas reutilizables con marcas de hidratación.","Soportes de portátil y teclados ergonómicos.","Antifaces, cortinas opacas y accesorios para dormir.","Organizadores de escritorio y de cocina.","Bandas elásticas y material de entrenamiento en casa."],
+p:["Un producto ganador resuelve algo que la gente ya nota en su día a día. Dormir mal, dolor de espalda o desorden son problemas reales, y por eso estos artículos se venden con facilidad.","Fíjate en cuál tiene menos devoluciones y mejor margen. Un soporte de portátil bien hecho, por ejemplo, es ligero, barato de enviar y se explica con una foto. Una botella con diseño cuidado puede venderse como regalo.","Antes de comprometerte, pide una muestra y comprueba la calidad. Evita cualquier afirmación médica en tus anuncios: vende comodidad y hábitos, no curas."],tg:"productos ganadores bienestar ergonomia sueno botella organizador entrenamiento"},
+{id:6,c:"productos",d:"3 nov 2026",t:"Cómo elegir un producto ganador sin gastarte los ahorros",
+s:"Una lista corta para decidir con cabeza antes de pagar nada.",
+l:["¿Resuelve un problema claro y frecuente?","¿El precio triplica el coste, contando envío y comisiones?","¿Es ligero y difícil de romper?","¿Puedes enseñarlo en un vídeo de diez segundos?","¿Qué dicen las reseñas negativas de la competencia?"],
+p:["Cuando encuentres una idea, haz las cuentas con todos los costes: producto, envío, pasarela de pago, anuncios y devoluciones. Muchas tiendas parecen rentables hasta que se suma todo.","Prueba con poco: una página sencilla, un anuncio pequeño y una lista de espera. Si nadie hace clic, el problema es la idea o el mensaje, no tu suerte.","Y guarda lo que aprendas. Lo que hoy no funciona te ahorra dinero mañana."],tg:"elegir producto ganador margen validar presupuesto dropshipping"},
+{id:7,c:"empezar",d:"2 nov 2026",t:"Tus primeros 30 días vendiendo online: qué hacer cada semana",
+s:"Sin complicarlo: un mes, cuatro pasos y un solo objetivo, conseguir tu primera venta.",
+l:["Semana 1: elige un público y un problema concreto.","Semana 2: valida con una página sencilla y una prueba pequeña.","Semana 3: monta la tienda, pagos y envíos.","Semana 4: lanza y habla con los primeros compradores."],
+p:["Mucha gente pierde semanas con el logo y el nombre. Mejor dedica ese tiempo a hablar con posibles clientes. Una conversación de diez minutos vale más que tres tardes de diseño.","Elige una plataforma que puedas manejar sin agobiarte, ya sea una tienda propia o un marketplace, y revisa comisiones. No olvides la parte legal: alta de actividad, facturación, impuestos y devoluciones. Consulta con un gestor de tu país.","Cuando llegue la primera venta, apunta qué funcionó y repítelo."],tg:"empezar vender online treinta dias tienda primera venta plataforma"},
+{id:8,c:"casa",d:"1 nov 2026",t:"Ganar dinero desde casa sin romper tu rutina: ideas que sí encajan",
+s:"Propuestas sencillas para sacar un extra con lo que ya sabes hacer.",
+l:["Vender lo que ya no usas.","Tutorías o clases online.","Freelance: redacción, diseño o edición.","Plantillas y guías digitales.","Gestión de redes para negocios pequeños.","Impresión bajo demanda."],
+p:["Empieza por lo que ya tienes: objetos sin uso, conocimientos o una habilidad que otros pagarían. No hace falta una gran idea, solo ayudar a alguien concreto.","Fija un objetivo pequeño, como el primer cliente o la primera venta, y apunta cuántas horas dedicas para saber lo que vale tu tiempo.","Desconfía de quien prometa dinero fácil o te pida pagar mucho por adelantado."],tg:"dinero desde casa ingresos extra freelance tutorias vender usados"}
 ];
-var V={cat:"noticias",q:"",open:0};
+var V={cat:"inicio",q:"",open:0};
 function esc(x){return String(x).replace(/&/g,"&amp;").replace(/</g,"&lt;")}
 function nz(x){return String(x).normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase()}
-function chg(v){return '<span class="'+(v>=0?"up":"dn")+'">'+(v>=0?"▲":"▼")+" "+Math.abs(v).toFixed(2).replace(".",",")+" %</span>"}
-function tick(){var h=M.map(function(x){return '<span class="px-5 whitespace-nowrap"><b>'+esc(x[0])+"</b> "+esc(x[1])+" "+chg(x[2])+"</span>"}).join("");document.getElementById("tk").innerHTML=h+h}
-function side(){
- document.getElementById("mk").innerHTML=M.map(function(x){return '<tr class="border-t" style="border-color:var(--line)"><td class="py-1.5">'+esc(x[0])+'</td><td class="text-right">'+esc(x[1])+'</td><td class="text-right pl-2">'+chg(x[2])+"</td></tr>"}).join("")+EXTRA.map(function(x){return '<tr class="border-t" style="border-color:var(--line)"><td class="py-1.5" colspan="2">'+esc(x[0])+'</td><td class="text-right">'+esc(x[1])+"</td></tr>"}).join("");
- document.getElementById("cal").innerHTML=CAL.map(function(x){return "<li><span class='tag'>"+esc(x[0])+"</span><br><b>"+esc(x[1])+"</b><br><span class='mut text-xs'>"+esc(x[2])+"</span></li>"}).join("")}
+function pop(){document.getElementById("pop").innerHTML=[1,2,5,7].map(function(i){var a=A.filter(function(x){return x.id===i})[0];return "<li><a class='lk block' onclick='openA("+i+")'><span class='h'>"+esc(a.t)+"</span></a></li>"}).join("")}
 function nav(){document.getElementById("nav").innerHTML=NAV.map(function(n){return '<button class="py-3 border-b-2 border-transparent '+(V.cat===n[0]&&!V.q&&!V.open?"on":"")+'" onclick="go(\''+n[0]+'\')">'+n[1]+"</button>"}).join("")}
 function go(c){V.cat=c;V.q="";V.open=0;document.getElementById("q").value="";draw();window.scrollTo(0,0)}
 function openA(i){V.open=i;draw();window.scrollTo(0,0)}
-function card(a){return '<a class="card p-4 block lk" onclick="openA('+a.id+')"><span class="tag">'+CAT[a.c]+'</span><h3 class="h font-bold mt-1 leading-snug">'+esc(a.t)+'</h3><p class="text-sm mut mt-2">'+esc(a.s)+'</p><p class="text-xs mut mt-2">'+a.d+" · Redacción DocCodex</p></a>"}
-function full(a){return '<button class="text-sm brand font-semibold mb-3" onclick="openA(0)">← Volver</button><article class="card p-5"><span class="tag">'+CAT[a.c]+'</span><h1 class="text-2xl sm:text-3xl font-extrabold leading-tight mt-1">'+esc(a.t)+'</h1><p class="text-xs mut mt-2"><time>'+a.d+"</time> · Por Redacción DocCodex</p><p class='mt-3 font-medium'>"+esc(a.s)+"</p><ul class='mt-3 list-disc pl-5 space-y-1 text-sm'>"+a.l.map(function(x){return "<li>"+esc(x)+"</li>"}).join("")+"</ul>"+a.p.map(function(x){return "<p class='mt-3 leading-relaxed'>"+esc(x)+"</p>"}).join("")+"<p class='text-[11px] mut mt-5'>Contenido informativo; no constituye asesoramiento financiero.</p></article>"}
+function card(a){return '<a class="card p-4 block lk" onclick="openA('+a.id+')"><span class="tag">'+CAT[a.c]+'</span><h3 class="h font-bold mt-1 leading-snug">'+esc(a.t)+'</h3><p class="text-sm mut mt-2">'+esc(a.s)+'</p><p class="text-xs mut mt-2">'+a.d+" · Equipo DocCodex</p></a>"}
+function full(a){return '<button class="text-sm brand font-semibold mb-3" onclick="openA(0)">← Volver</button><article class="card p-5"><span class="tag">'+CAT[a.c]+'</span><h1 class="text-2xl sm:text-3xl font-extrabold leading-tight mt-1">'+esc(a.t)+'</h1><p class="text-xs mut mt-2"><time>'+a.d+"</time> · Por el equipo de DocCodex</p><p class='mt-3 font-medium'>"+esc(a.s)+"</p><ul class='mt-3 list-disc pl-5 space-y-1 text-sm'>"+a.l.map(function(x){return "<li>"+esc(x)+"</li>"}).join("")+"</ul>"+a.p.map(function(x){return "<p class='mt-3 leading-relaxed'>"+esc(x)+"</p>"}).join("")+"<p class='text-[11px] mut mt-5'>Contenido informativo. No sustituye el consejo médico ni garantiza ingresos.</p></article>"}
 function draw(){
  var m=document.getElementById("main"),h="";nav();
  if(V.open){m.innerHTML=full(A.filter(function(a){return a.id===V.open})[0]);return}
  if(V.q){var k=nz(V.q).split(/\s+/).filter(Boolean);var r=A.filter(function(a){var s=nz(a.t+" "+a.s+" "+a.l.join(" ")+" "+a.p.join(" ")+" "+a.tg+" "+CAT[a.c]);return k.every(function(w){return s.indexOf(w)>-1})});
-  m.innerHTML='<h2 class="text-lg font-bold mb-3">'+r.length+" resultado"+(r.length===1?"":"s")+" para “"+esc(V.q)+"”</h2>"+(r.length?'<div class="grid gap-4 sm:grid-cols-2">'+r.map(card).join("")+"</div>":'<p class="card p-4 mut">No hay resultados. Prueba con otro término, por ejemplo “Ibex”, “Fed” o “bitcoin”.</p>');return}
- if(V.cat==="calendario"){m.innerHTML='<h2 class="text-lg font-bold mb-3">Calendario económico</h2><div class="space-y-3">'+CAL.map(function(x){return '<div class="card p-4"><span class="tag">'+esc(x[0])+"</span><h3 class='font-bold mt-1'>"+esc(x[1])+"</h3><p class='text-sm mut mt-1'>"+esc(x[2])+"</p></div>"}).join("")+'</div><p class="text-xs mut mt-3">Horarios en GMT salvo indicación. Confirma las fechas en las fuentes oficiales de cada institución.</p>';return}
- var L=V.cat==="noticias"?A:A.filter(function(a){return a.c===V.cat});
+  m.innerHTML='<h2 class="text-lg font-bold mb-3">'+r.length+" resultado"+(r.length===1?"":"s")+" para “"+esc(V.q)+"”</h2>"+(r.length?'<div class="grid gap-4 sm:grid-cols-2">'+r.map(card).join("")+"</div>":'<p class="card p-4 mut">No hay resultados. Prueba con “sueño”, “rutina” o “producto”.</p>');return}
+ var L=V.cat==="inicio"?A:A.filter(function(a){return a.c===V.cat});
  if(!L.length){m.innerHTML='<p class="card p-4 mut">Todavía no hay artículos en esta sección.</p>';return}
  var f=L[0],rest=L.slice(1);
- h='<article class="card p-5" style="border-left:4px solid var(--dn)"><div class="flex items-center gap-2 mb-2">'+(f.b?'<span class="text-[11px] font-bold px-2 py-0.5 rounded text-white" style="background:var(--dn)">ÚLTIMA HORA</span>':"")+'<span class="tag">'+CAT[f.c]+'</span></div><h1 class="text-2xl sm:text-3xl font-extrabold leading-tight">'+esc(f.t)+'</h1><p class="text-xs mut mt-2"><time>'+f.d+"</time> · Por Redacción DocCodex</p><p class='mt-3 font-medium'>"+esc(f.s)+"</p><ul class='mt-3 list-disc pl-5 space-y-1 text-sm'>"+f.l.map(function(x){return "<li>"+esc(x)+"</li>"}).join("")+"</ul><a class='inline-block mt-4 text-sm font-semibold brand' onclick='openA("+f.id+")'>Leer artículo completo →</a></article>";
- if(rest.length)h+='<h2 class="mt-8 mb-3 text-lg font-bold">Más noticias</h2><div class="grid gap-4 sm:grid-cols-2">'+rest.map(card).join("")+"</div>";
+ h='<article class="card p-5" style="border-left:4px solid var(--acc)"><div class="flex items-center gap-2 mb-2">'+(f.b?'<span class="text-[11px] font-bold px-2 py-0.5 rounded" style="background:var(--acc);color:#111">DESTACADO</span>':"")+'<span class="tag">'+CAT[f.c]+'</span></div><h1 class="text-2xl sm:text-3xl font-extrabold leading-tight">'+esc(f.t)+'</h1><p class="text-xs mut mt-2"><time>'+f.d+"</time> · Por el equipo de DocCodex</p><p class=\"mt-3 font-medium\">"+esc(f.s)+"</p><ul class='mt-3 list-disc pl-5 space-y-1 text-sm'>"+f.l.slice(0,4).map(function(x){return "<li>"+esc(x)+"</li>"}).join("")+"</ul><a class='inline-block mt-4 text-sm font-semibold brand' onclick='openA("+f.id+")'>Leer artículo completo →</a></article>";
+ if(rest.length)h+='<h2 class="mt-8 mb-3 text-lg font-bold">Más artículos</h2><div class="grid gap-4 sm:grid-cols-2">'+rest.map(card).join("")+"</div>";
  m.innerHTML=h}
 document.getElementById("q").addEventListener("input",function(e){V.q=e.target.value.trim();V.open=0;draw()});
-tick();side();draw();
+pop();draw();
 </script>
 </body>
 </html>
