@@ -3,134 +3,86 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>DocCodex · Hábitos sanos y productos ganadores para emprender</title>
-<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<title>DocCodex · Bolsa, hábitos financieros y productividad</title>
 <style>
 :root{color-scheme:light dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
---bg:#f4f6f9;--card:#fff;--ink:#0f1b2d;--mut:#5b6b80;--line:#dde3ec;--brand:#0b3d91;--acc:#e8a317;--hot:#d33a3a;--bar:#0f1b2d}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1220;--card:#131d30;--ink:#e8edf5;--mut:#97a6bb;--line:#24324a;--brand:#6ea1ff;--acc:#f0b429;--hot:#ff6b6b;--bar:#070c16}}
-:root[data-theme="dark"]{--bg:#0b1220;--card:#131d30;--ink:#e8edf5;--mut:#97a6bb;--line:#24324a;--brand:#6ea1ff;--acc:#f0b429;--hot:#ff6b6b;--bar:#070c16}
+--bg:#fff;--ink:#222;--mut:#6b6b6b;--line:#e4e4e4;--link:#1a5fb4;--soft:#f6f6f4}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17181a;--ink:#e6e6e6;--mut:#9a9a9a;--line:#2e3033;--link:#7db3f5;--soft:#1f2022}}
+:root[data-theme="dark"]{--bg:#17181a;--ink:#e6e6e6;--mut:#9a9a9a;--line:#2e3033;--link:#7db3f5;--soft:#1f2022}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
-body{background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-.card{background:var(--card);border:1px solid var(--line);border-radius:6px}
-.mut{color:var(--mut)}.brand{color:var(--brand)}
-.tag{font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--brand)}
-a,button{cursor:pointer}a{text-decoration:none}.lk:hover .h{text-decoration:underline}
-nav button.on{border-color:var(--brand);color:var(--brand)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.7 Georgia,"Times New Roman",serif}
+a{color:var(--link)}
+.w{max-width:720px;margin:0 auto;padding:0 20px}
+header{border-bottom:1px solid var(--line);padding:22px 0 0}
+.logo{font-size:28px;font-weight:700;color:var(--ink);text-decoration:none}
+.sub{margin:2px 0 0;color:var(--mut);font:14px system-ui,sans-serif}
+nav{margin-top:16px;display:flex;gap:20px;flex-wrap:wrap;font:15px system-ui,sans-serif}
+nav a{color:var(--ink);text-decoration:none;padding:8px 0;border-bottom:2px solid transparent}
+nav a.on{border-bottom-color:var(--link);font-weight:600}
+main{padding:28px 0 40px;min-height:60vh}
+.post{padding:0 0 24px;margin:0 0 24px;border-bottom:1px solid var(--line)}
+.post h2{margin:4px 0 6px;font-size:23px;line-height:1.3}
+.post h2 a{color:var(--ink);text-decoration:none}.post h2 a:hover{color:var(--link)}
+.meta{font:13px system-ui,sans-serif;color:var(--mut)}
+.post p{margin:6px 0}
+h1{font-size:32px;line-height:1.25;margin:6px 0 8px}
+article h3{font-size:21px;margin:28px 0 4px}
+article p,article ul,article ol{margin:14px 0}
+article li{margin:6px 0}
+.back{font:14px system-ui,sans-serif}
+.note{background:var(--soft);padding:12px 16px;font:14px system-ui,sans-serif;color:var(--mut);margin-top:28px}
+footer{background:var(--soft);border-top:1px solid var(--line);font:14px/1.6 system-ui,sans-serif;color:var(--mut);padding:28px 0}
+footer b{color:var(--ink)}footer p{margin:6px 0}
+.cols{display:flex;gap:40px;flex-wrap:wrap}
 </style>
 </head>
 <body>
-
-<div style="background:var(--bar)" class="text-xs text-white/80">
-  <div class="max-w-6xl mx-auto px-4 py-2 flex items-center justify-between gap-3">
-    <a href="https://t.me/classymarkt" target="_blank" rel="noopener" class="font-semibold">✈ Telegram: t.me/classymarkt</a>
-    <span>Actualizado: 8 nov 2026</span>
-  </div>
+<header><div class="w">
+<a class="logo" href="#inicio">DocCodex</a>
+<p class="sub">Bolsa, hábitos financieros y productividad, paso a paso</p>
+<nav id="nav"></nav>
+</div></header>
+<main><div class="w" id="main"></div></main>
+<footer><div class="w">
+<div class="cols">
+<div><p><b>DocCodex</b></p><p>Anécdotas de bolsa, hábitos de inversión y productividad para quien quiere ordenar su dinero poco a poco.</p></div>
+<div><p><b>Síguenos</b></p><p><a href="https://t.me/classymarkt" target="_blank" rel="noopener">Canal de Telegram: t.me/classymarkt</a></p></div>
 </div>
-
-<header style="background:var(--card);border-bottom:1px solid var(--line)">
-  <div class="max-w-6xl mx-auto px-4 pt-4">
-    <div class="flex flex-wrap items-center justify-between gap-3">
-      <a href="#" onclick="go('inicio');return false" class="text-3xl font-extrabold tracking-tight">Doc<span class="brand">Codex</span><span class="block text-xs font-normal mut tracking-normal">Hábitos sanos y productos ganadores para emprender</span></a>
-      <input id="q" type="search" placeholder="Buscar sueño, rutina, productos…" aria-label="Buscar" class="w-full sm:w-80 rounded px-3 py-2 text-sm outline-none" style="background:var(--bg);border:1px solid var(--line);color:var(--ink)">
-    </div>
-    <nav class="mt-3 -mx-4 px-4 overflow-x-auto" aria-label="Principal">
-      <div class="flex gap-5 text-sm font-semibold whitespace-nowrap" id="nav"></div>
-    </nav>
-  </div>
-</header>
-
-<main class="max-w-6xl mx-auto px-4 py-6 grid gap-6 lg:grid-cols-[1fr_320px]">
-  <div class="min-w-0" id="main"></div>
-  <aside class="space-y-6">
-    <section class="card p-4">
-      <h2 class="font-bold mb-2">Lo más leído</h2>
-      <ul class="text-sm space-y-2" id="pop"></ul>
-    </section>
-    <section class="card p-4">
-      <h2 class="font-bold mb-2">Cuatro hábitos para hoy</h2>
-      <ol class="text-sm space-y-2 list-decimal pl-5 mut">
-        <li>Bebe un vaso de agua antes del móvil.</li>
-        <li>Camina 10 minutos, aunque sea por casa.</li>
-        <li>Haz primero la tarea que más pesa.</li>
-        <li>Ponle hora de cierre a tu jornada.</li>
-      </ol>
-    </section>
-    <section class="card p-4 text-center">
-      <h2 class="font-bold">Sigue DocCodex en Telegram</h2>
-      <p class="text-sm mut my-2">Ideas de productos y hábitos prácticos, directo a tu móvil.</p>
-      <a href="https://t.me/classymarkt" target="_blank" rel="noopener" class="inline-block rounded px-4 py-2 font-semibold" style="background:var(--acc);color:#111">Unirme al canal</a>
-    </section>
-  </aside>
-</main>
-
-<footer style="background:var(--bar)" class="text-white/70 text-xs">
-  <div class="max-w-6xl mx-auto px-4 py-6 space-y-2">
-    <b class="text-white text-base">DocCodex</b>
-    <p>Aviso: los contenidos son informativos y no sustituyen el consejo de un profesional de la salud. Tampoco garantizan ingresos; prueba cada idea con tus propios datos y consulta la normativa fiscal y de consumo de tu país.</p>
-    <p>© 2026 DocCodex · <a href="https://t.me/classymarkt" target="_blank" rel="noopener" class="underline">t.me/classymarkt</a></p>
-  </div>
-</footer>
-
+<p style="margin-top:18px">Aviso: este contenido es solo informativo y educativo. No es asesoramiento financiero ni una recomendación de compra o venta. Invertir implica riesgo, incluida la pérdida del capital, y la rentabilidad pasada no garantiza resultados futuros. Consulta con un asesor autorizado antes de decidir. © 2026 DocCodex.</p>
+</div></footer>
 <script>
-var CAT={salud:"Salud y energía",habitos:"Hábitos",productos:"Productos ganadores",empezar:"Empezar a vender",casa:"Dinero desde casa"};
-var NAV=[["inicio","Inicio"],["salud","Salud y energía"],["habitos","Hábitos"],["productos","Productos ganadores"],["empezar","Empezar a vender"],["casa","Dinero desde casa"]];
+var CAT={anecdotas:"Anécdotas de bolsa",habitos:"Hábitos financieros",productividad:"Productividad",productos:"Productos financieros"};
+var NAV=[["inicio","Inicio"],["anecdotas","Anécdotas de bolsa"],["habitos","Hábitos financieros"],["productividad","Productividad"],["productos","Productos financieros"]];
 var A=[
-{id:1,c:"salud",b:1,d:"8 nov 2026",t:"Dormir bien también es trabajar: cómo cuidar tu sueño cuando emprendes",
-s:"Cuando tienes un proyecto en marcha es tentador recortar horas de cama. Suele salir caro: peor humor, peores decisiones.",
-l:["Fija una hora de levantarte y respétala también el fin de semana.","Deja el móvil fuera de la cama o al menos en modo no molestar.","Evita cafeína a partir de media tarde.","Anota lo pendiente antes de dormir para vaciar la cabeza."],
-p:["Si vendes online, lo más probable es que tu cabeza no se apague nunca: pedidos, mensajes, anuncios. Una pequeña rutina de cierre ayuda mucho. Apunta en un papel tres cosas para mañana, cierra el portátil y haz algo tranquilo durante veinte minutos.","La luz importa. Por la noche conviene bajar la intensidad de las luces de casa y reducir pantallas un rato antes de acostarte. Un buen antifaz o unas cortinas opacas son compras baratas que muchas personas notan enseguida.","Si llevas semanas durmiendo mal sin motivo claro, o te cuesta mucho funcionar de día, consulta con tu médico. Aquí damos hábitos generales, no diagnósticos."],tg:"sueno dormir descanso rutina noche emprendedores energia"},
-{id:2,c:"habitos",d:"7 nov 2026",t:"Una rutina de mañana de 30 minutos que sí se puede mantener",
-s:"Nada de levantarse a las cinco ni de rituales imposibles. Esta es una versión realista para quien también tiene que vivir.",
-l:["5 minutos: agua y luz natural (ventana o balcón).","10 minutos: moverte un poco, caminar o estirar.","5 minutos: mirar qué tres tareas importan hoy.","10 minutos: desayuno tranquilo, sin pantallas."],
-p:["La clave de una rutina es que sea tan fácil que no tengas excusa. Empieza con una sola cosa durante una semana, por ejemplo el vaso de agua y la caminata, y añade lo siguiente cuando ya no te cueste.","Elegir tres tareas, y no diez, evita esa sensación de estar siempre atrasado. Si terminas esas tres, el día ya fue productivo. Lo que sobre es un extra.","Habrá días que falle. No pasa nada: vuelve a empezar al día siguiente sin castigarte."],tg:"rutina manana habitos productividad desayuno agua caminar"},
-{id:3,c:"salud",d:"6 nov 2026",t:"Trabajar desde casa sin quedarte hecho polvo: espalda, ojos y cabeza",
-s:"Pasar ocho horas en el sofá con el portátil pasa factura. Unos cambios pequeños marcan la diferencia.",
-l:["Eleva la pantalla a la altura de los ojos.","Cada hora, levántate un par de minutos.","Cada 20 minutos, mira un punto lejano unos segundos.","Come lejos del escritorio, aunque sea cinco minutos."],
-p:["No necesitas montar una oficina de lujo. Con un soporte para el portátil, un teclado aparte y una silla que te sostenga la zona lumbar ya mejoras bastante. Si no puedes comprarlo todo, empieza por la altura de la pantalla.","Las pausas cortas funcionan mejor que una pausa larga a las tantas. Pon una alarma suave, estírate, bebe agua y vuelve. También ayuda tener un sitio de trabajo distinto al de descanso.","Si notas dolor persistente, hormigueo o molestias que no se van, pide cita con un profesional sanitario."],tg:"teletrabajo espalda ergonomia pausas ojos silla soporte portatil"},
-{id:4,c:"habitos",d:"5 nov 2026",t:"Cómo organizar la semana si emprendes y además tienes otro trabajo",
-s:"Poco tiempo y mucha energía mal repartida. Este método simple te ayuda a avanzar sin quemarte.",
-l:["Reserva 3 bloques fijos de 90 minutos por semana para tu negocio.","Pon el bloque cuando mejor rindes, no cuando sobre tiempo.","Haz una lista corta el domingo por la noche.","Deja un día completo sin tocar el proyecto."],
-p:["Mejor poco y constante que mucho y esporádico. Tres bloques semanales bien protegidos suelen dar más resultados que intentar trabajar un poco cada noche agotado.","Agrupa tareas parecidas: un día para publicar y responder mensajes, otro para revisar pedidos y proveedores, otro para crear contenido. Cambiar de tarea constantemente cansa más de lo que parece.","El descanso es parte del plan. Si todo tu tiempo libre se va en el negocio, tarde o temprano lo dejarás."],tg:"organizar semana tiempo bloques emprender otro trabajo rutina"},
-{id:5,c:"productos",d:"4 nov 2026",t:"5 productos ganadores con un punto en común: ayudan a cuidarse",
-s:"Los productos de bienestar y comodidad llevan años vendiendo. Esta es una selección con sentido para empezar.",
-l:["Botellas reutilizables con marcas de hidratación.","Soportes de portátil y teclados ergonómicos.","Antifaces, cortinas opacas y accesorios para dormir.","Organizadores de escritorio y de cocina.","Bandas elásticas y material de entrenamiento en casa."],
-p:["Un producto ganador resuelve algo que la gente ya nota en su día a día. Dormir mal, dolor de espalda o desorden son problemas reales, y por eso estos artículos se venden con facilidad.","Fíjate en cuál tiene menos devoluciones y mejor margen. Un soporte de portátil bien hecho, por ejemplo, es ligero, barato de enviar y se explica con una foto. Una botella con diseño cuidado puede venderse como regalo.","Antes de comprometerte, pide una muestra y comprueba la calidad. Evita cualquier afirmación médica en tus anuncios: vende comodidad y hábitos, no curas."],tg:"productos ganadores bienestar ergonomia sueno botella organizador entrenamiento"},
-{id:6,c:"productos",d:"3 nov 2026",t:"Cómo elegir un producto ganador sin gastarte los ahorros",
-s:"Una lista corta para decidir con cabeza antes de pagar nada.",
-l:["¿Resuelve un problema claro y frecuente?","¿El precio triplica el coste, contando envío y comisiones?","¿Es ligero y difícil de romper?","¿Puedes enseñarlo en un vídeo de diez segundos?","¿Qué dicen las reseñas negativas de la competencia?"],
-p:["Cuando encuentres una idea, haz las cuentas con todos los costes: producto, envío, pasarela de pago, anuncios y devoluciones. Muchas tiendas parecen rentables hasta que se suma todo.","Prueba con poco: una página sencilla, un anuncio pequeño y una lista de espera. Si nadie hace clic, el problema es la idea o el mensaje, no tu suerte.","Y guarda lo que aprendas. Lo que hoy no funciona te ahorra dinero mañana."],tg:"elegir producto ganador margen validar presupuesto dropshipping"},
-{id:7,c:"empezar",d:"2 nov 2026",t:"Tus primeros 30 días vendiendo online: qué hacer cada semana",
-s:"Sin complicarlo: un mes, cuatro pasos y un solo objetivo, conseguir tu primera venta.",
-l:["Semana 1: elige un público y un problema concreto.","Semana 2: valida con una página sencilla y una prueba pequeña.","Semana 3: monta la tienda, pagos y envíos.","Semana 4: lanza y habla con los primeros compradores."],
-p:["Mucha gente pierde semanas con el logo y el nombre. Mejor dedica ese tiempo a hablar con posibles clientes. Una conversación de diez minutos vale más que tres tardes de diseño.","Elige una plataforma que puedas manejar sin agobiarte, ya sea una tienda propia o un marketplace, y revisa comisiones. No olvides la parte legal: alta de actividad, facturación, impuestos y devoluciones. Consulta con un gestor de tu país.","Cuando llegue la primera venta, apunta qué funcionó y repítelo."],tg:"empezar vender online treinta dias tienda primera venta plataforma"},
-{id:8,c:"casa",d:"1 nov 2026",t:"Ganar dinero desde casa sin romper tu rutina: ideas que sí encajan",
-s:"Propuestas sencillas para sacar un extra con lo que ya sabes hacer.",
-l:["Vender lo que ya no usas.","Tutorías o clases online.","Freelance: redacción, diseño o edición.","Plantillas y guías digitales.","Gestión de redes para negocios pequeños.","Impresión bajo demanda."],
-p:["Empieza por lo que ya tienes: objetos sin uso, conocimientos o una habilidad que otros pagarían. No hace falta una gran idea, solo ayudar a alguien concreto.","Fija un objetivo pequeño, como el primer cliente o la primera venta, y apunta cuántas horas dedicas para saber lo que vale tu tiempo.","Desconfía de quien prometa dinero fácil o te pida pagar mucho por adelantado."],tg:"dinero desde casa ingresos extra freelance tutorias vender usados"}
+{id:1,c:"anecdotas",d:"14 nov 2026",t:"Warren Buffett compró su primera acción con 11 años",s:"Una historia pequeña que enseña mucho sobre paciencia.",b:[["p","Buffett cuenta que compró sus primeras acciones a los 11 años, junto a su hermana. Cuando el precio subió un poco las vendió, y la acción siguió subiendo mucho tiempo después."],["h","Qué se aprende"],["ul","Vender pronto por impaciencia puede salir caro.","Empezar joven da más tiempo para que el dinero crezca.","Un error pequeño al principio es una buena lección barata."],["p","No significa que debas comprar nada por esta historia. Es un recordatorio de que el tiempo pesa más que el golpe de suerte."]]},
+{id:2,c:"anecdotas",d:"13 nov 2026",t:"Isaac Newton y la burbuja de los Mares del Sur",s:"Un genio de la ciencia que también perdió dinero en bolsa.",b:[["p","En 1720, las acciones de la Compañía de los Mares del Sur se disparaban en Londres. Según varias biografías, Newton ganó dinero al principio, vendió, y más tarde volvió a entrar cuando todo el mundo hablaba de ello. Cuando la burbuja estalló, perdió una suma importante."],["p","La frase famosa que se le atribuye sobre la locura de la gente es muy probablemente apócrifa, pero la historia es real: sabía mucho, y aun así le afectó la euforia colectiva."],["p","Moraleja: comprar solo porque todos compran es una mala señal, por listo que seas."]]},
+{id:3,c:"anecdotas",d:"12 nov 2026",t:"Pets.com: la empresa del muñeco con calcetín que duró menos de un año en bolsa",s:"Anuncios famosos, ventas sin beneficios y una caída rápida.",b:[["p","Pets.com vendía productos para mascotas por internet y se hizo famosa por su mascota de calcetín. Salió a bolsa en febrero de 2000 y cerró en noviembre del mismo año."],["p","Gastaba mucho en publicidad y los márgenes eran muy bajos, en plena fiebre de las puntocom."],["ul","Una marca conocida no es lo mismo que un negocio rentable.","Mira si la empresa gana dinero o solo crece gastando.","Las modas del mercado pasan; los números, no."]]},
+{id:4,c:"anecdotas",d:"11 nov 2026",t:"Lunes Negro de 1987: el día que el Dow Jones cayó más de un 20 %",s:"El 19 de octubre de 1987, Wall Street vivió su peor sesión en porcentaje.",b:[["p","Ese día el índice Dow Jones se hundió alrededor de un 22 % en una sola sesión. Fue una caída enorme y casi nadie la esperaba."],["p","Lo curioso es lo que vino después: el mercado se recuperó con el tiempo, aunque quien vendió asustado ese día se quedó con la pérdida."],["p","Por eso se insiste tanto en tener un plan por escrito antes de que lleguen las caídas, y en no invertir dinero que vayas a necesitar pronto."]]},
+{id:5,c:"anecdotas",d:"10 nov 2026",t:"El hombre que pagó dos pizzas con 10.000 bitcoins",s:"El 22 de mayo de 2010 se hizo la primera compra conocida con bitcoin.",b:[["p","Un programador pagó 10.000 bitcoins por dos pizzas. En aquel momento valían muy poco, y hoy esa cifra daría para una fortuna."],["p","La anécdota se recuerda cada año, pero enseña otra cosa: nadie sabía en 2010 cómo evolucionaría. Mirar atrás con el resultado es fácil."],["p","Si algo te atrae de las criptomonedas, invierte solo lo que puedas perder sin que cambie tu vida."]]},
+{id:6,c:"habitos",d:"9 nov 2026",t:"Antes de invertir: crea tu colchón de emergencia",s:"El primer hábito financiero no es comprar acciones.",b:[["p","Muchos expertos coinciden en que antes de invertir conviene tener un fondo para imprevistos. Una referencia habitual es entre tres y seis meses de gastos, aunque depende de tu situación."],["ul","Calcula tus gastos mensuales fijos.","Abre una cuenta separada solo para ese fondo.","Aporta una cantidad pequeña cada mes.","Úsalo solo para emergencias reales."],["p","Así, si surge un problema, no tendrás que vender inversiones en el peor momento."]]},
+{id:7,c:"habitos",d:"8 nov 2026",t:"Aportar un poco cada mes: el hábito que más se repite",s:"La constancia importa más que acertar el momento.",b:[["p","Invertir una cantidad fija cada mes se llama aportación periódica. Compras a veces más caro y a veces más barato, y te olvidas de intentar adivinar el mercado."],["ul","Elige una cantidad que no te agobie.","Programa la transferencia el día que cobras.","No la cambies porque el mercado suba o baje.","Revisa el plan una vez al año."],["p","No elimina el riesgo ni asegura beneficios, pero ayuda a crear el hábito."]]},
+{id:8,c:"habitos",d:"7 nov 2026",t:"Riesgo y plazo: cuánto puedes asumir según para qué es tu dinero",s:"No todo el dinero sirve para lo mismo.",b:[["p","Antes de elegir un producto, pregúntate cuándo necesitarás ese dinero."],["ul","Menos de un año: busca seguridad y liquidez.","De uno a cinco años: combina opciones prudentes.","Más de diez años: puedes asumir más altibajos."],["p","Cuanto más corto es el plazo, menos deberías depender de activos que puedan caer en ese tiempo. Y diversificar reduce el impacto de que algo salga mal."]]},
+{id:9,c:"habitos",d:"6 nov 2026",t:"5 errores típicos del inversor principiante",s:"Los que más se repiten y cómo evitarlos.",b:[["ol","Invertir dinero que necesitas a corto plazo.","Comprar por una recomendación en redes sin investigar.","Poner todo en un solo activo.","Vender por pánico en una caída.","Ignorar las comisiones, que se acumulan."],["p","Ninguno es grave si lo detectas a tiempo. Lo importante es aprender con cantidades pequeñas."]]},
+{id:10,c:"habitos",d:"5 nov 2026",t:"Cómo mover tu dinero: el sistema de tres cuentas",s:"Ordena tus cuentas para gastar, ahorrar e invertir sin líos.",b:[["p","Una forma sencilla de organizarte es separar el dinero por función:"],["ul","Cuenta de gastos: nómina y pagos del día a día.","Cuenta de ahorro: fondo de emergencia y metas a corto plazo.","Cuenta de inversión: dinero a largo plazo."],["p","Con transferencias automáticas el día de cobro, todo se mueve sin pensar. Revisa comisiones y condiciones de cada cuenta antes de abrirla."]]},
+{id:11,c:"productividad",d:"4 nov 2026",t:"Revisa tus finanzas en 30 minutos a la semana",s:"Un rato corto y fijo evita sorpresas.",b:[["ol","Mira tus movimientos de la semana.","Marca los gastos que no esperabas.","Comprueba que la aportación mensual se ha hecho.","Anota una decisión para la semana siguiente."],["p","Hazlo siempre el mismo día y con una hoja de cálculo sencilla. No necesitas aplicaciones complicadas."]]},
+{id:12,c:"productividad",d:"3 nov 2026",t:"Productividad en el trabajo: tres bloques de concentración",s:"Menos multitarea, más resultados.",b:[["p","Divide la jornada en tres bloques de concentración, de 45 a 90 minutos, con una pausa entre ellos."],["ul","Primer bloque: la tarea más importante.","Segundo bloque: tareas medianas y reuniones.","Tercer bloque: correo, mensajes y administración."],["p","Silencia las notificaciones durante los bloques. Un mejor trabajo también mejora tus ingresos a largo plazo."]]},
+{id:13,c:"productividad",d:"2 nov 2026",t:"Cómo evitar mirar la bolsa cada cinco minutos",s:"Consultar el precio todo el día solo genera ansiedad.",b:[["p","Si invertes a largo plazo, ver los precios cada hora no te aporta nada y sí te distrae del trabajo."],["ul","Quita las alertas de precio del móvil.","Consulta tu cartera un día fijo al mes.","Escribe tu plan para releerlo cuando haya caídas."],["p","Menos ruido, más tiempo para tu trabajo y para ti."]]},
+{id:14,c:"productos",d:"1 nov 2026",t:"Cuenta remunerada, depósito o Letras del Tesoro: qué diferencia hay",s:"Tres opciones habituales para el dinero a corto plazo.",b:[["ul","Cuenta remunerada: acceso inmediato; la rentabilidad puede cambiar.","Depósito: bloqueas el dinero un plazo a cambio de un interés pactado.","Letras del Tesoro: deuda a corto plazo del Estado, con precio y rentabilidad según la subasta."],["p","En España, los depósitos están cubiertos por el Fondo de Garantía hasta 100.000 euros por titular y entidad. Compara siempre condiciones actuales y fiscalidad antes de elegir."]]},
+{id:15,c:"productos",d:"31 oct 2026",t:"Fondos indexados y ETF: qué son y en qué se parecen",s:"Dos formas de invertir en muchos activos a la vez.",b:[["p","Un fondo indexado intenta replicar un índice, como uno de bolsa mundial. Un ETF es similar, pero cotiza en bolsa y puede comprarse y venderse durante la sesión."],["ul","Suelen tener comisiones bajas.","Reparten el dinero entre muchas empresas.","Su valor sube y baja con el mercado."],["p","Revisa los gastos, el índice que replican y los impuestos aplicables a tu caso."]]},
+{id:16,c:"productos",d:"30 oct 2026",t:"Cómo comprobar que una entidad financiera es legal",s:"Antes de dar tus datos o tu dinero, haz estas comprobaciones.",b:[["ul","Busca la entidad en los registros de la CNMV y del Banco de España.","Consulta las alertas de la CNMV sobre empresas sin autorización.","Desconfía de rentabilidades garantizadas y de las prisas.","Comprueba que la web identifica a la empresa y su domicilio."],["p","Si algo parece demasiado bueno para ser verdad, probablemente lo sea."]]}
 ];
-var V={cat:"inicio",q:"",open:0};
 function esc(x){return String(x).replace(/&/g,"&amp;").replace(/</g,"&lt;")}
-function nz(x){return String(x).normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase()}
-function pop(){document.getElementById("pop").innerHTML=[1,2,5,7].map(function(i){var a=A.filter(function(x){return x.id===i})[0];return "<li><a class='lk block' onclick='openA("+i+")'><span class='h'>"+esc(a.t)+"</span></a></li>"}).join("")}
-function nav(){document.getElementById("nav").innerHTML=NAV.map(function(n){return '<button class="py-3 border-b-2 border-transparent '+(V.cat===n[0]&&!V.q&&!V.open?"on":"")+'" onclick="go(\''+n[0]+'\')">'+n[1]+"</button>"}).join("")}
-function go(c){V.cat=c;V.q="";V.open=0;document.getElementById("q").value="";draw();window.scrollTo(0,0)}
-function openA(i){V.open=i;draw();window.scrollTo(0,0)}
-function card(a){return '<a class="card p-4 block lk" onclick="openA('+a.id+')"><span class="tag">'+CAT[a.c]+'</span><h3 class="h font-bold mt-1 leading-snug">'+esc(a.t)+'</h3><p class="text-sm mut mt-2">'+esc(a.s)+'</p><p class="text-xs mut mt-2">'+a.d+" · Equipo DocCodex</p></a>"}
-function full(a){return '<button class="text-sm brand font-semibold mb-3" onclick="openA(0)">← Volver</button><article class="card p-5"><span class="tag">'+CAT[a.c]+'</span><h1 class="text-2xl sm:text-3xl font-extrabold leading-tight mt-1">'+esc(a.t)+'</h1><p class="text-xs mut mt-2"><time>'+a.d+"</time> · Por el equipo de DocCodex</p><p class='mt-3 font-medium'>"+esc(a.s)+"</p><ul class='mt-3 list-disc pl-5 space-y-1 text-sm'>"+a.l.map(function(x){return "<li>"+esc(x)+"</li>"}).join("")+"</ul>"+a.p.map(function(x){return "<p class='mt-3 leading-relaxed'>"+esc(x)+"</p>"}).join("")+"<p class='text-[11px] mut mt-5'>Contenido informativo. No sustituye el consejo médico ni garantiza ingresos.</p></article>"}
+function nav(c){document.getElementById("nav").innerHTML=NAV.map(function(n){return '<a href="#'+n[0]+'"'+(n[0]===c?' class="on"':'')+'>'+n[1]+'</a>'}).join("")}
+function item(a){return '<div class="post"><div class="meta">'+CAT[a.c]+' · '+a.d+'</div><h2><a href="#post-'+a.id+'">'+esc(a.t)+'</a></h2><p>'+esc(a.s)+'</p><a class="meta" href="#post-'+a.id+'" style="color:var(--link)">Leer más →</a></div>'}
+function body(b){return b.map(function(x){var k=x[0];if(k==="p")return "<p>"+esc(x[1])+"</p>";if(k==="h")return "<h3>"+esc(x[1])+"</h3>";var t=k==="ul"?"ul":"ol";var arr=x.slice(1);if(arr.length===1&&Array.isArray(arr[0]))arr=arr[0];return "<"+t+">"+arr.map(function(i){return "<li>"+esc(i)+"</li>"}).join("")+"</"+t+">"}).join("")}
 function draw(){
- var m=document.getElementById("main"),h="";nav();
- if(V.open){m.innerHTML=full(A.filter(function(a){return a.id===V.open})[0]);return}
- if(V.q){var k=nz(V.q).split(/\s+/).filter(Boolean);var r=A.filter(function(a){var s=nz(a.t+" "+a.s+" "+a.l.join(" ")+" "+a.p.join(" ")+" "+a.tg+" "+CAT[a.c]);return k.every(function(w){return s.indexOf(w)>-1})});
-  m.innerHTML='<h2 class="text-lg font-bold mb-3">'+r.length+" resultado"+(r.length===1?"":"s")+" para “"+esc(V.q)+"”</h2>"+(r.length?'<div class="grid gap-4 sm:grid-cols-2">'+r.map(card).join("")+"</div>":'<p class="card p-4 mut">No hay resultados. Prueba con “sueño”, “rutina” o “producto”.</p>');return}
- var L=V.cat==="inicio"?A:A.filter(function(a){return a.c===V.cat});
- if(!L.length){m.innerHTML='<p class="card p-4 mut">Todavía no hay artículos en esta sección.</p>';return}
- var f=L[0],rest=L.slice(1);
- h='<article class="card p-5" style="border-left:4px solid var(--acc)"><div class="flex items-center gap-2 mb-2">'+(f.b?'<span class="text-[11px] font-bold px-2 py-0.5 rounded" style="background:var(--acc);color:#111">DESTACADO</span>':"")+'<span class="tag">'+CAT[f.c]+'</span></div><h1 class="text-2xl sm:text-3xl font-extrabold leading-tight">'+esc(f.t)+'</h1><p class="text-xs mut mt-2"><time>'+f.d+"</time> · Por el equipo de DocCodex</p><p class=\"mt-3 font-medium\">"+esc(f.s)+"</p><ul class='mt-3 list-disc pl-5 space-y-1 text-sm'>"+f.l.slice(0,4).map(function(x){return "<li>"+esc(x)+"</li>"}).join("")+"</ul><a class='inline-block mt-4 text-sm font-semibold brand' onclick='openA("+f.id+")'>Leer artículo completo →</a></article>";
- if(rest.length)h+='<h2 class="mt-8 mb-3 text-lg font-bold">Más artículos</h2><div class="grid gap-4 sm:grid-cols-2">'+rest.map(card).join("")+"</div>";
- m.innerHTML=h}
-document.getElementById("q").addEventListener("input",function(e){V.q=e.target.value.trim();V.open=0;draw()});
-pop();draw();
+ var h=(location.hash||"#inicio").slice(1),m=document.getElementById("main");
+ if(h.indexOf("post-")===0){var a=A.filter(function(x){return "post-"+x.id===h})[0];if(a){nav(a.c);m.innerHTML='<a class="back" href="#'+a.c+'">← '+CAT[a.c]+'</a><article><div class="meta" style="margin-top:14px">'+CAT[a.c]+' · '+a.d+'</div><h1>'+esc(a.t)+'</h1>'+body(a.b)+'<div class="note">Contenido informativo. No es asesoramiento financiero; invertir implica riesgo de pérdida.</div></article>';document.title=a.t+" · DocCodex";window.scrollTo(0,0);return}}
+ var L=CAT[h]?A.filter(function(x){return x.c===h}):A;if(!CAT[h])h="inicio";
+ nav(h);document.title="DocCodex · Bolsa, hábitos financieros y productividad";
+ m.innerHTML=(CAT[h]?'<h1>'+CAT[h]+'</h1>':'')+L.map(item).join("");window.scrollTo(0,0)}
+window.addEventListener("hashchange",draw);draw();
 </script>
 </body>
 </html>
